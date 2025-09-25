@@ -80,8 +80,20 @@ body::after {
   gap: 12px; height: 68px;
 }
 
-.logo { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px; }
-.logo svg { filter: drop-shadow(0 6px 18px rgba(137,240,194,.25)); }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;         /* bolder */
+  font-size: 1.25rem;       /* bigger text */
+  letter-spacing: 0.5px;
+}
+
+.logo .brand-text {
+  font-size: 1.35rem;       /* larger than normal nav links */
+  font-weight: 800;
+}
+
 
 /* Base nav layout */
 .nav { display:flex; align-items:center; gap:10px; }
