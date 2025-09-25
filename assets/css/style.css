@@ -72,23 +72,36 @@ body::after {
   border-radius:12px; padding:6px 10px; color:var(--text);
 }
 
-/* Buttons */
+/* Buttons (consistent padding + better look) */
 .btn {
-  display:inline-flex; align-items:center; gap:10px;
-  font-weight:800; border-radius:999px;
-  padding:12px 18px; position:relative;
-  isolation:isolate; transition:transform .2s ease;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-weight:700;
+  font-size:15px;
+  line-height:1;
+  border-radius:999px;
+  padding:12px 20px;        /* 🔥 consistent padding */
+  position:relative;
+  transition:all .25s ease;
+  cursor:pointer;
+  white-space:nowrap;
 }
+
 .btn.primary {
   background:linear-gradient(135deg,var(--brand),var(--brand-2));
-  color:#0a0a0a; box-shadow:var(--shadow);
+  color:#0a0a0a;
+  box-shadow:0 6px 20px rgba(0,0,0,.45);
 }
+
 .btn.ghost {
   border:1px solid var(--border);
-  background:rgba(255,255,255,.02);
+  background:rgba(255,255,255,.05); /* 🔥 softer ghost look */
+  color:var(--text);
 }
-.btn .icon { font-size:18px; }
-.btn:hover { transform:translateY(-1px); }
+
+.btn:hover { transform:translateY(-2px); }
 .btn:active { transform:translateY(0); }
 
 /* =========================
@@ -239,5 +252,15 @@ body::after {
 @media (max-width: 560px) {
   .cards, .grid-3 { grid-template-columns:1fr; }
   .cta { flex-direction:column; align-items:flex-start; }
+}
+
+/* Glassmorphism panels */
+.glass {
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:20px;
+  backdrop-filter:blur(12px) saturate(180%);
+  -webkit-backdrop-filter:blur(12px) saturate(180%);
+  box-shadow:0 8px 30px rgba(0,0,0,.35);
 }
 
