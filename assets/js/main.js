@@ -11,6 +11,15 @@ toggle?.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', String(!expanded));
   nav.classList.toggle('show');
 });
+// ===== Navbar scroll effect
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
 
 // 2. Reveal animations (on scroll)
 const io = new IntersectionObserver((entries) => {
