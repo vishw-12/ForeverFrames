@@ -344,7 +344,8 @@ body::after {
 /* =========================
    CAMERA LENS BACKGROUND EFFECT (with flare)
    ========================= */
-.lens-effect {
+.lens-effect {  
+   background: rgba(255,0,0,0.2); 
   position: fixed;
   inset: 0;
   z-index: -1; /* behind everything */
