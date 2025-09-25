@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Session — Forever Frames</title>
+  <meta name="description" content="Check availability and book your photography session with Forever Frames." />
+  <meta name="theme-color" content="#0b0b0f" />
+
+  <!-- SEO / Open Graph -->
+  <meta property="og:title" content="Book a Session — Forever Frames" />
+  <meta property="og:description" content="Check availability and book your photography session with Forever Frames." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Forever Frames" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preload" href="assets/css/style.css" as="style">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  
+<section class="page-hero small">
+  <div class="container">
+    <h1>Book a Session</h1>
+    <p>Tell us a bit about your event, and we'll confirm availability within 24 hours.</p>
+  </div>
+</section>
+
+<section class="container">
+  <form class="form" action="https://formspree.io/f/your-form-id" method="POST">
+    <div class="grid-2">
+      <label>Full Name
+        <input name="name" required placeholder="Your name">
+      </label>
+      <label>Email
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+    </div>
+    <div class="grid-2">
+      <label>Event Type
+        <select name="type" required>
+          <option value="">Select…</option>
+          <option>Wedding</option>
+          <option>Event</option>
+          <option>Portrait</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label>Event Date
+        <input type="date" name="date" required>
+      </label>
+    </div>
+    <label>Location
+      <input name="location" placeholder="City / Venue">
+    </label>
+    <label>Message
+      <textarea name="message" rows="5" placeholder="Tell me about your vision…"></textarea>
+    </label>
+    <button class="btn" type="submit">Request Availability</button>
+    <p class="muted small">No spam ever. You’ll get a confirmation email.</p>
+  </form>
+</section>
+
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
