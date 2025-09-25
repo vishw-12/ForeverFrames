@@ -52,24 +52,69 @@ body::after {
 }
 
 /* =========================
-   NAVIGATION BAR
+   NAVIGATION BAR  (updated)
    ========================= */
 .site-header {
-  position:sticky; top:0; z-index:1000;
-  backdrop-filter:saturate(160%) blur(10px);
-  background:linear-gradient(180deg, rgba(16,16,23,.85), rgba(16,16,23,.55));
-  border-bottom:1px solid var(--border);
+  position: sticky; top: 0; z-index: 1000;
+  /* Subtle glass background for the whole bar */
+  background: rgba(16,16,23,0.45);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--border);
 }
-.nav-wrap { display:flex; align-items:center; justify-content:space-between; gap:12px; height:68px; }
+
+.nav-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; height: 68px;
+}
+
 .logo { display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px; }
-.logo svg { filter:drop-shadow(0 6px 18px rgba(137,240,194,.25)); }
-.nav { display:flex; align-items:center; gap:20px; }
-.nav a { opacity:.9; padding:10px 0; }
-.nav a.active, .nav a:hover { opacity:1; }
-.nav .btn { margin-left:6px; }
-.nav-toggle {
-  display:none; background:transparent; border:1px solid var(--border);
+.logo svg { filter: drop-shadow(0 6px 18px rgba(137,240,194,.25)); }
+
+/* Base nav layout */
+.nav { display:flex; align-items:center; gap:10px; }
+
+/* --- Nav links — Glass hover chips --- */
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;              /* consistent hit area */
+  border-radius: 12px;
+  font-weight: 500;
+  color: var(--text);
+  opacity: .85;
+  border: 1px solid transparent;  /* so layout doesn't jump on hover */
+  transition: all .25s ease;
+}
+
+.nav a:hover,
+.nav a:focus {
+  opacity: 1;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+}
+
+/* Buttons inside nav keep spacing and don’t get double padding */
+.nav .btn { margin-left: 6px; }
+
+/* Mobile menu button */
+.nav-toggle{
+  display:none; background:transparent;
+  border:1px solid var(--border);
   border-radius:12px; padding:6px 10px; color:var(--text);
+}
+
+/* Responsive menu (unchanged) */
+@media (max-width: 960px){
+  .nav { display:none; position:absolute; right:20px; top:68px;
+         background:var(--panel); border:1px solid var(--border);
+         padding:12px; border-radius:14px; flex-direction:column; align-items:flex-start; }
+  .nav.show { display:flex; }
+  .nav-toggle { display:block; }
 }
 
 /* =========================
