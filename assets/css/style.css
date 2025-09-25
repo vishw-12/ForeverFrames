@@ -59,23 +59,21 @@ body::after {
   top: 0;
   z-index: 1000;
 
-  /* Glassmorphism background */
-  background: rgba(16, 16, 23, 0.35);
-  border-bottom: 1px solid rgba(255,255,255,0.18);
+  /* Default frosted background */
+  background: rgba(16, 16, 23, 0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
 
   backdrop-filter: blur(14px) saturate(180%);
   -webkit-backdrop-filter: blur(14px) saturate(180%);
 
-  /* Subtle gradient overlay for depth */
-  background-image: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(0, 0, 0, 0.25)
-  );
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
 
-  /* Soft inner shadow for depth */
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.05),
-              0 4px 20px rgba(0,0,0,0.35);
+/* Stronger look when scrolled */
+.site-header.scrolled {
+  background: rgba(16, 16, 23, 0.55);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
 }
 .nav-wrap {
   display: flex; align-items: center; justify-content: space-between;
