@@ -441,4 +441,49 @@ body::after {
   0%   { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+/* =====================================
+   FIX HERO IMAGES ON MOBILE/TABLET
+   ===================================== */
+
+/* Tablet */
+@media (max-width: 960px) {
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .hero-visual .card-photo {
+    position: relative !important;
+    width: 28% !important;   /* small images */
+    max-width: 160px;        /* cap size */
+    aspect-ratio: 3/4;       /* keep portrait ratio */
+  }
+
+  .hero-visual .card-photo img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover;
+  }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .hero-visual {
+    justify-content: center;
+  }
+
+  .hero-visual .p1 {
+    width: 65% !important;
+    max-width: 220px;
+  }
+
+  .hero-visual .p2,
+  .hero-visual .p3 {
+    display: none !important; /* hide extras */
+  }
+}
 
