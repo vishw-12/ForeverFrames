@@ -228,16 +228,21 @@ body::after {
 .p2 { bottom:14%; left:0; width:46%; aspect-ratio:4/3; }
 .p3 { bottom:0; right:10%; width:38%; aspect-ratio:1/1; }
 
-/* Floating badges */
-.badge {
-  position:absolute; display:flex; align-items:center; gap:8px;
-  padding:10px 12px; border-radius:999px;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--border);
-  backdrop-filter:blur(6px);
+/* Consistent captions for hero images */
+.hero-visual .badge {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(16,16,23,.7);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  backdrop-filter: blur(6px);
 }
-.b1 { top:-10px; right:50%; transform:translateX(60%); }
-.b2 { bottom:12px; left:6px; }
 
 /* =========================
    FEATURES
