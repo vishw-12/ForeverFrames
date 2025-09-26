@@ -176,12 +176,17 @@ body::after {
   background: rgba(255,255,255,.02);
 }
 /* Match Portfolio title font with homepage hero */
+/* ========================= HERO TITLES (shared across pages) ========================= */
 .hero-title {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   line-height: 1.05;
   margin: 14px 0 10px;
   font-size: clamp(36px, 5.6vw, 72px);
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .eyebrow .dot {
   width: 8px;
