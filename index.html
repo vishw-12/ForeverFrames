@@ -18,17 +18,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- Link external CSS (with cache-busting) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=3">
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-
 </head>
 <body>
+<div class="page-wrapper">
+
   <!-- Camera lens background effect -->
   <div class="lens-effect">
     <div class="lens-ring"></div>
@@ -60,97 +61,99 @@
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero glass">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow reveal"><span class="dot"></span> Ontario • Weddings • Events • Portraits</span>
-        <h1 class="reveal" style="transition-delay:.05s">
-          Turning <span class="accent">Moments</span><br>
-          into Eternity.
-        </h1>
-        <p class="reveal" style="transition-delay:.1s">Cinematic, candid storytelling for your biggest days — with fast delivery and a stress-free experience.</p>
-        <div class="hero-cta reveal" style="transition-delay:.15s">
-          <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">✨</span> Start Your Booking</a>
-          <a href="portfolio.html" class="btn ghost">View Portfolio</a>
+  <!-- ===================== MAIN ===================== -->
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero glass">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow reveal"><span class="dot"></span> Ontario • Weddings • Events • Portraits</span>
+          <h1 class="reveal" style="transition-delay:.05s">
+            Turning <span class="accent">Moments</span><br>
+            into Eternity.
+          </h1>
+          <p class="reveal" style="transition-delay:.1s">Cinematic, candid storytelling for your biggest days — with fast delivery and a stress-free experience.</p>
+          <div class="hero-cta reveal" style="transition-delay:.15s">
+            <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">✨</span> Start Your Booking</a>
+            <a href="portfolio.html" class="btn ghost">View Portfolio</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Photo 1 -->
+          <figure class="card-photo p1 reveal" style="transition-delay:.2s">
+            <img src="assets/engagement.png" alt="Engagement celebration with couple" />
+            <figcaption class="badge">Next-day highlights</figcaption>
+          </figure>
+
+          <!-- Photo 2 -->
+          <figure class="card-photo p2 reveal" style="transition-delay:.25s">
+            <img src="assets/event.png" alt="Event and party celebration" />
+            <figcaption class="badge">Candid storytelling</figcaption>
+          </figure>
+
+          <!-- Photo 3 -->
+          <figure class="card-photo p3 reveal" style="transition-delay:.3s">
+            <img src="assets/portrait.png" alt="Portrait of a model" />
+            <figcaption class="badge">Editorial portrait</figcaption>
+          </figure>
         </div>
       </div>
+    </section>
 
-<div class="hero-visual">
-  <!-- Photo 1 -->
-  <figure class="card-photo p1 reveal" style="transition-delay:.2s">
-    <img src="assets/engagement.png" alt="Engagement celebration with couple" />
-    <figcaption class="badge">Next-day highlights</figcaption>
-  </figure>
-
-  <!-- Photo 2 -->
-  <figure class="card-photo p2 reveal" style="transition-delay:.25s">
-    <img src="assets/event.png" alt="Event and party celebration" />
-    <figcaption class="badge">Candid storytelling</figcaption>
-  </figure>
-
-  <!-- Photo 3 -->
-  <figure class="card-photo p3 reveal" style="transition-delay:.3s">
-    <img src="assets/portrait.png" alt="Portrait of a model" />
-    <figcaption class="badge">Editorial portrait</figcaption>
-  </figure>
-</div>
-
-    </div>
-  </section>
-
-  <!-- ===================== FEATURES ===================== -->
-  <section class="features">
-    <div class="container grid-3">
-      <article class="feature reveal" style="transition-delay:.05s">
-        <h4>Natural & Candid</h4>
-        <p>Real moments over stiff poses — guided when needed, never forced.</p>
-      </article>
-      <article class="feature reveal" style="transition-delay:.1s">
-        <h4>Fast Turnaround</h4>
-        <p>Highlights in 48–72h. Full gallery within two weeks.</p>
-      </article>
-      <article class="feature reveal" style="transition-delay:.15s">
-        <h4>Transparent Pricing</h4>
-        <p>Clear packages and add-ons. No surprises, ever.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===================== PORTFOLIO PREVIEW ===================== -->
-  <section class="section">
-    <div class="container">
-      <h2 class="reveal">Featured Work</h2>
-      <p class="lead reveal" style="transition-delay:.05s">A few favorites from recent weddings, events, and portrait sessions.</p>
-      <div class="cards">
-        <a class="card reveal" style="transition-delay:.1s" href="portfolio-weddings.html">
-          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Outdoor ceremony under the trees" />
-          <span class="label">Weddings</span>
-        </a>
-        <a class="card reveal" style="transition-delay:.15s" href="portfolio-events.html">
-          <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Lights on a stage during an event" />
-          <span class="label">Events</span>
-        </a>
-        <a class="card reveal" style="transition-delay:.2s" href="portfolio-portraits.html">
-          <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1200&auto=format&fit=crop" alt="Editorial portrait in low light" />
-          <span class="label">Portraits</span>
-        </a>
+    <!-- ===================== FEATURES ===================== -->
+    <section class="features">
+      <div class="container grid-3">
+        <article class="feature reveal" style="transition-delay:.05s">
+          <h4>Natural & Candid</h4>
+          <p>Real moments over stiff poses — guided when needed, never forced.</p>
+        </article>
+        <article class="feature reveal" style="transition-delay:.1s">
+          <h4>Fast Turnaround</h4>
+          <p>Highlights in 48–72h. Full gallery within two weeks.</p>
+        </article>
+        <article class="feature reveal" style="transition-delay:.15s">
+          <h4>Transparent Pricing</h4>
+          <p>Clear packages and add-ons. No surprises, ever.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== CTA ===================== -->
-  <section class="section">
-    <div class="container cta reveal">
-      <div>
-        <h3 style="margin:0">Ready to make something beautiful?</h3>
-        <p>Tell me about your date and vision — I’ll respond within 24 hours.</p>
+    <!-- ===================== PORTFOLIO PREVIEW ===================== -->
+    <section class="section">
+      <div class="container">
+        <h2 class="reveal">Featured Work</h2>
+        <p class="lead reveal" style="transition-delay:.05s">A few favorites from recent weddings, events, and portrait sessions.</p>
+        <div class="cards">
+          <a class="card reveal" style="transition-delay:.1s" href="portfolio-weddings.html">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Outdoor ceremony under the trees" />
+            <span class="label">Weddings</span>
+          </a>
+          <a class="card reveal" style="transition-delay:.15s" href="portfolio-events.html">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1200&auto=format&fit=crop" alt="Lights on a stage during an event" />
+            <span class="label">Events</span>
+          </a>
+          <a class="card reveal" style="transition-delay:.2s" href="portfolio-portraits.html">
+            <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1200&auto=format&fit=crop" alt="Editorial portrait in low light" />
+            <span class="label">Portraits</span>
+          </a>
+        </div>
       </div>
-      <div>
-        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📸</span> Book Your Session</a>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="section">
+      <div class="container cta reveal">
+        <div>
+          <h3 style="margin:0">Ready to make something beautiful?</h3>
+          <p>Tell me about your date and vision — I’ll respond within 24 hours.</p>
+        </div>
+        <div>
+          <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📸</span> Book Your Session</a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
@@ -163,7 +166,9 @@
     </div>
   </footer>
 
-  <!-- External JS -->
-  <script src="assets/js/main.js"></script>
+</div> <!-- end page-wrapper -->
+
+<!-- External JS -->
+<script src="assets/js/main.js"></script>
 </body>
 </html>
