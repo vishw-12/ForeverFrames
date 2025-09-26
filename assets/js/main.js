@@ -117,4 +117,6 @@ filterButtons.forEach(btn => {
     });
   });
 });
+// Prevent nav shifting due to scrollbar
+document.documentElement.style.overflowY = "scroll";
 
