@@ -209,6 +209,14 @@ body::after {
   margin:14px 0 10px;
   font-size:clamp(36px,5.6vw,72px);
 }
+/* Reusable hero title (for other pages like portfolio, services, etc.) */
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 14px 0 10px;
+  font-size: clamp(36px, 5.6vw, 72px);
+}
 .hero h1 .accent {
   background:linear-gradient(135deg,#fff,rgba(255,255,255,.8));
   -webkit-background-clip:text; background-clip:text; color:transparent;
