@@ -28,6 +28,10 @@ html, body {
   font-family: Inter, system-ui, sans-serif;
   scroll-behavior:smooth;
 }
+/* Always reserve space for scrollbar to prevent layout shift */
+html {
+  overflow-y: scroll;
+}
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 .container { max-width:1200px; margin:0 auto; padding:0 20px; }
