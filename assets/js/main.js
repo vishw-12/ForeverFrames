@@ -64,3 +64,19 @@ document.querySelectorAll('.btn-magnetic').forEach(btn=>{
 // 5. Dynamic footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// 6. Lazy-load background image with fade-in
+window.addEventListener("load", () => {
+  const bgUrl = "assets/img/lens-bg.jpg"; // optimized JPG
+  const img = new Image();
+  img.src = bgUrl;
+  img.onload = () => {
+    document.body.style.setProperty(
+      "background-image",
+      `url('${bgUrl}')`
+    );
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+  };
+});
+
