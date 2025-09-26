@@ -66,7 +66,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // 6. Lazy-load background image with fade-in
 window.addEventListener("load", () => {
-  const bgUrl = "assets/img/lens-bg.jpg"; // optimized JPG
+  const bgUrl = "assets/images/lens.jpg"; // optimized JPG
   const img = new Image();
   img.src = bgUrl;
   img.onload = () => {
