@@ -401,3 +401,33 @@ body::after {
   0% { transform: translate(-50%,-50%) rotate(0deg); }
   100% { transform: translate(-50%,-50%) rotate(360deg); }
 }
+/* Portfolio Hero Section */
+.portfolio-hero {
+  padding: 100px 0 60px;
+  border-bottom: 1px solid var(--border);
+}
+
+.portfolio-hero .container {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-hero .hero-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  font-size: clamp(36px, 5.6vw, 64px);
+  background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.portfolio-hero p.lead {
+  color: var(--muted);
+  font-size: clamp(16px, 2vw, 20px);
+  margin: 0 auto;
+  max-width: 600px;
+}
