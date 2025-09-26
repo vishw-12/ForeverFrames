@@ -80,3 +80,29 @@ window.addEventListener("load", () => {
   };
 });
 
+/* =========================
+   PORTFOLIO FILTERING
+   ========================= */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // Remove active state from all buttons
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    portfolioItems.forEach(item => {
+      if (filter === "all" || item.classList.contains(filter)) {
+        item.style.display = "block";
+        setTimeout(() => item.classList.add("show"), 50);
+      } else {
+        item.classList.remove("show");
+        setTimeout(() => item.style.display = "none", 300);
+      }
+    });
+  });
+});
+
