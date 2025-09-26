@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Forever Frames</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -15,7 +15,7 @@
 <body>
 <div class="page-wrapper">
 
-  <!-- ===================== NAV ===================== -->
+  <!-- ===================== HEADER ===================== -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="index.html" aria-label="Forever Frames home">
@@ -25,9 +25,7 @@
         </svg>
         <span class="brand-text">Forever Frames ∞</span>
       </a>
-
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
-      <nav id="nav" class="nav" role="navigation">
+      <nav id="nav" class="nav">
         <a href="portfolio.html" class="active">Portfolio</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
@@ -38,7 +36,7 @@
     </div>
   </header>
 
-  <!-- ===================== MAIN CONTENT ===================== -->
+  <!-- ===================== MAIN ===================== -->
   <main>
     <!-- Hero -->
     <section class="section glass">
@@ -56,7 +54,7 @@
       <button data-filter="portrait">Portraits</button>
     </div>
 
-    <!-- Gallery Grid -->
+    <!-- Gallery -->
     <section class="portfolio-grid container">
       <div class="portfolio-item wedding">
         <img src="assets/images/portfolio/wedding1.jpg" alt="Wedding moment">
@@ -70,17 +68,10 @@
       <div class="portfolio-item portrait">
         <img src="assets/images/portfolio/portrait1.jpg" alt="Portrait of model">
       </div>
-      <!-- Add more items as needed -->
     </section>
 
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-      <span class="lightbox-close">&times;</span>
-      <img class="lightbox-content" id="lightbox-img" alt="">
-    </div>
-
     <!-- CTA -->
-    <section class="section cta container">
+    <section class="section glass container">
       <h3>Love what you see?</h3>
       <a href="booking.html" class="btn primary">📸 Book Your Session</a>
     </section>
@@ -97,45 +88,7 @@
     </div>
   </footer>
 
-</div> <!-- end page-wrapper -->
-
-<!-- Scripts -->
+</div>
 <script src="assets/js/main.js"></script>
-<script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll(".portfolio-filters button");
-  const items = document.querySelectorAll(".portfolio-item");
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      const filter = btn.getAttribute("data-filter");
-      items.forEach(item => {
-        item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none";
-      });
-    });
-  });
-
-  // Lightbox functionality
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".lightbox-close");
-
-  items.forEach(item => {
-    item.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = item.querySelector("img").src;
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  });
-</script>
 </body>
 </html>
