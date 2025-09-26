@@ -175,6 +175,14 @@ body::after {
   color: var(--muted);
   background: rgba(255,255,255,.02);
 }
+/* Match Portfolio title font with homepage hero */
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.05;
+  margin: 14px 0 10px;
+  font-size: clamp(36px, 5.6vw, 72px);
+}
 .eyebrow .dot {
   width: 8px;
   height: 8px;
