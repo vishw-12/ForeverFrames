@@ -4,11 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio — Forever Frames</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 <body>
 
-  <!-- Reuse Navbar -->
+  <!-- ===================== NAV ===================== -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="index.html">Forever Frames ∞</a>
@@ -23,7 +23,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ===================== HERO ===================== -->
   <section class="section glass">
     <div class="container">
       <h1 class="reveal">My Portfolio</h1>
@@ -31,7 +31,7 @@
     </div>
   </section>
 
-  <!-- Filters -->
+  <!-- ===================== FILTERS ===================== -->
   <div class="portfolio-filters container">
     <button data-filter="all" class="active">All</button>
     <button data-filter="wedding">Weddings</button>
@@ -39,7 +39,7 @@
     <button data-filter="portrait">Portraits</button>
   </div>
 
-  <!-- Gallery Grid -->
+  <!-- ===================== GALLERY GRID ===================== -->
   <section class="portfolio-grid container">
     <div class="portfolio-item wedding">
       <img src="assets/images/portfolio/wedding1.jpg" alt="Wedding moment">
@@ -56,19 +56,62 @@
     <!-- Add more items as needed -->
   </section>
 
-  <!-- CTA -->
+  <!-- ===================== LIGHTBOX ===================== -->
+  <div id="lightbox" class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="">
+  </div>
+
+  <!-- ===================== CTA ===================== -->
   <section class="section cta container">
     <h3>Love what you see?</h3>
     <a href="booking.html" class="btn primary">📸 Book Your Session</a>
   </section>
 
-  <!-- Footer -->
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="container">
       © <span id="year"></span> Forever Frames — All Rights Reserved
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll(".portfolio-filters button");
+    const items = document.querySelectorAll(".portfolio-item");
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+        items.forEach(item => {
+          item.style.display = (filter === "all" || item.classList.contains(filter)) ? "block" : "none";
+        });
+      });
+    });
+
+    // Lightbox functionality
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox-close");
+
+    items.forEach(item => {
+      item.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = item.querySelector("img").src;
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) lightbox.style.display = "none";
+    });
+  </script>
 </body>
 </html>
