@@ -505,66 +505,98 @@ body::after {
    PORTFOLIO PAGE
    ==================================================================================================================== */
 
-/* Portfolio page styles */
+/* Filter buttons */
 .portfolio-filters {
+  text-align: center;
+  margin: 30px auto;
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin: 30px auto;
+  flex-wrap: wrap;
 }
-
 .portfolio-filters button {
-  padding: 8px 18px;
+  padding: 10px 18px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text);
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
-.portfolio-filters button.active,
-.portfolio-filters button:hover {
-  background: linear-gradient(135deg,var(--brand),var(--brand-2));
+.portfolio-filters button:hover,
+.portfolio-filters button.active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
   color: #0a0a0a;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
+/* Grid layout */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 40px auto;
 }
-
 .portfolio-item {
-  overflow: hidden;
-  border-radius: var(--radius);
   position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.4s ease;
 }
 .portfolio-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .6s ease;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.portfolio-item:hover {
+  transform: translateY(-6px);
 }
 .portfolio-item:hover img {
-  transform: scale(1.05);
-}
-/* Portfolio filtering animation */
-.portfolio-item {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.3s ease-in-out;
+  transform: scale(1.08);
 }
 
-.portfolio-item.show {
-  opacity: 1;
-  transform: scale(1);
+/* Lightbox */
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease;
+}
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lightbox-close:hover {
+  color: var(--brand);
 }
 
-/* Active filter button style */
-.filter-btn.active {
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  color: #0a0a0a;
-  font-weight: 600;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 
