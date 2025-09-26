@@ -38,7 +38,7 @@ body::before {
   content:"";
   position:fixed; inset:0; z-index:-2;
   background:
-    url('../images/lens.png') no-repeat center center / cover,
+    url('../images/lens.jpg') no-repeat center center / cover,
     radial-gradient(1000px 600px at 10% 10%,rgba(137,240,194,.08),transparent 60%),
     radial-gradient(900px 600px at 90% 0%,rgba(138,180,248,.10),transparent 60%),
     radial-gradient(800px 600px at 50% 100%,rgba(255,108,168,.08),transparent 60%),
