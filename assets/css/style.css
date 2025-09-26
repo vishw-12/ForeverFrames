@@ -322,20 +322,56 @@ body::after {
 /* =========================
    RESPONSIVE BREAKPOINTS
    ========================= */
+
+/* Tablet and below */
 @media (max-width: 960px) {
-  .hero-grid { grid-template-columns:1fr; }
-  .p1, .p2, .p3 { position:relative; width:100%; }
-  .grid-3, .cards { grid-template-columns:1fr 1fr; }
-  .nav { display:none; position:absolute; right:20px; top:68px;
-         background:var(--panel); border:1px solid var(--border);
-         padding:12px; border-radius:14px; flex-direction:column; align-items:flex-start; }
-  .nav.show { display:flex; }
-  .nav-toggle { display:block; }
+  .hero-grid {
+    grid-template-columns: 1fr; /* Text full width */
+    text-align: center;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* Keep photos smaller, not full width */
+  .p1, .p2, .p3 {
+    position: relative;
+    width: 30%;        /* shrink photos */
+    min-width: 120px;  /* don't go too tiny */
+  }
 }
+
+/* Small mobile */
 @media (max-width: 560px) {
-  .cards, .grid-3 { grid-template-columns:1fr; }
-  .cta { flex-direction:column; align-items:flex-start; }
+  .hero-visual {
+    gap: 8px;
+  }
+
+  /* Show only main image, hide extras */
+  .p2, .p3 {
+    display: none;
+  }
+
+  .p1 {
+    width: 65%; /* slightly bigger focus image */
+  }
+
+  .grid-3, .cards {
+    grid-template-columns: 1fr; /* stack */
+  }
+
+  .cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
+
 
 /* Glassmorphism panels */
 .glass {
