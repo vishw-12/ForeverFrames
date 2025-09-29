@@ -3,8 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio — Forever Frames</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <title>My Portfolio — Forever Frames</title>
+  <meta name="description" content="A curated selection of weddings, events, and portraits — capturing timeless emotions." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -13,7 +21,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
 </head>
 <body>
-  <!-- Camera lens background effect -->
+
+  <!-- Background effects (same as index) -->
   <div class="lens-effect">
     <div class="lens-ring"></div>
     <div class="lens-ring"></div>
@@ -21,38 +30,18 @@
     <div class="lens-flare"></div>
   </div>
 
-  <!-- ===================== NAV (identical to index.html) ===================== -->
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="logo" href="index.html" aria-label="Forever Frames home">
-        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6a2 2 0 0 1 2-2h12a1 1 0 0 1 .8.4l1.8 2.4A2 2 0 0 1 21 8v10a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V6z" fill="currentColor" opacity=".18"></path>
-          <path d="M7 8h10M4 6v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-.4-1.2L18.8 4.4A2 2 0 0 0 17.2 4H6a2 2 0 0 0-2 2zm5 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
-        </svg>
-        <span class="brand-text">Forever Frames ∞</span>
-      </a>
-
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
-      <nav id="nav" class="nav" role="navigation">
-        <a href="portfolio.html" class="active">Portfolio</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="testimonials.html">Testimonials</a>
-        <a href="contact.html" class="btn ghost">Contact</a>
-        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📅</span> Book Now</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Header/Nav injected -->
+  <div id="site-header"></div>
 
   <!-- ===================== HERO ===================== -->
-<section class="portfolio-hero glass">
-  <div class="container">
-    <h1 class="hero-title reveal">My Portfolio</h1>
-    <p class="lead reveal">
-      A curated selection of weddings, events, and portraits — capturing timeless emotions.
-    </p>
-  </div>
-</section>
+  <section class="hero glass">
+    <div class="container">
+      <h1 class="reveal" style="font-family:'Playfair Display', serif; font-weight:700;">
+        My Portfolio
+      </h1>
+      <p class="lead reveal">A curated selection of weddings, events, and portraits — capturing timeless emotions.</p>
+    </div>
+  </section>
 
   <!-- ===================== FILTERS ===================== -->
   <div class="portfolio-filters container">
@@ -90,21 +79,14 @@
     <a href="booking.html" class="btn primary">📸 Book Your Session</a>
   </section>
 
-  <!-- ===================== FOOTER (identical to index.html) ===================== -->
-  <footer class="site-footer">
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-      <div>© <span id="year"></span> Forever Frames</div>
-      <div style="display:flex;gap:14px">
-        <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
-        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer injected -->
+  <div id="site-footer"></div>
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/partials.js"></script>
   <script>
-    // Filter functionality
+    // Portfolio filters
     const filterBtns = document.querySelectorAll(".portfolio-filters button");
     const items = document.querySelectorAll(".portfolio-item");
 
@@ -119,7 +101,7 @@
       });
     });
 
-    // Lightbox functionality
+    // Lightbox
     const lightbox = document.getElementById("lightbox");
     const lightboxImg = document.getElementById("lightbox-img");
     const closeBtn = document.querySelector(".lightbox-close");
