@@ -3,27 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio — Forever Frames</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
-
-  <!-- Favicons -->
+  <title>My Portfolio — Forever Frames</title>
+  <meta name="description" content="Forever Frames portfolio — weddings, events, and portraits capturing timeless emotions." />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-
-  <style>
-    html { overflow-y: scroll; } /* prevent nav shift */
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .site-footer { margin-top: auto; }
-  </style>
 </head>
-<body>
-  <!-- Background lens effect -->
+<body class="portfolio">
+
+  <!-- Camera lens background effect -->
   <div class="lens-effect">
     <div class="lens-ring"></div>
     <div class="lens-ring"></div>
@@ -31,53 +21,74 @@
     <div class="lens-flare"></div>
   </div>
 
-  <!-- HEADER (same as index.html) -->
+  <!-- ===================== NAV (same as index.html) ===================== -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="logo" href="index.html" aria-label="Forever Frames home">
         <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6a2 2 0 0 1 2-2h12a1 1 0 0 1 .8.4l1.8 2.4A2 2 0 0 1 21 8v10a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V6z"
-                fill="currentColor" opacity=".18"></path>
-          <path d="M7 8h10M4 6v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-.4-1.2L18.8 4.4A2 2 0 0 0 17.2 4H6a2 2 0 0 0-2 2zm5 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"
-                stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M4 6a2 2 0 0 1 2-2h12a1 1 0 0 1 .8.4l1.8 2.4A2 2 0 0 1 21 8v10a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V6z" fill="currentColor" opacity=".18"></path>
+          <path d="M7 8h10M4 6v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-.4-1.2L18.8 4.4A2 2 0 0 0 17.2 4H6a2 2 0 0 0-2 2zm5 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></path>
         </svg>
         <span class="brand-text">Forever Frames ∞</span>
       </a>
+
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
       <nav id="nav" class="nav" role="navigation">
-        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="contact.html" class="btn ghost">Contact</a>
-        <a href="booking.html" class="btn primary btn-magnetic">📅 Book Now</a>
+        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📅</span> Book Now</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero glass">
+  <!-- ===================== HERO ===================== -->
+  <section class="portfolio-hero glass">
     <div class="container">
-      <h1 class="reveal" style="font-family:'Playfair Display',serif;">My Portfolio</h1>
-      <p class="lead reveal">A curated selection of weddings, events, and portraits — capturing timeless emotions.</p>
+      <h1 class="hero-title">My Portfolio</h1>
+      <p class="lead">A curated selection of weddings, events, and portraits — capturing timeless emotions.</p>
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section class="portfolio-grid container">
-    <div class="portfolio-item wedding"><img src="assets/images/portfolio/wedding1.jpg" alt="Wedding moment"></div>
-    <div class="portfolio-item wedding"><img src="assets/images/portfolio/wedding2.jpg" alt="Wedding details"></div>
-    <div class="portfolio-item event"><img src="assets/images/portfolio/event1.jpg" alt="Event celebration"></div>
-    <div class="portfolio-item portrait"><img src="assets/images/portfolio/portrait1.jpg" alt="Portrait of model"></div>
+  <!-- ===================== PORTFOLIO GRID ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        <a class="card" href="#">
+          <img src="assets/images/wedding1.jpg" alt="Wedding moment">
+          <span class="label">Wedding moment</span>
+        </a>
+        <a class="card" href="#">
+          <img src="assets/images/wedding2.jpg" alt="Wedding details">
+          <span class="label">Wedding details</span>
+        </a>
+        <a class="card" href="#">
+          <img src="assets/images/event1.jpg" alt="Event celebration">
+          <span class="label">Event celebration</span>
+        </a>
+        <a class="card" href="#">
+          <img src="assets/images/portrait1.jpg" alt="Portrait of model">
+          <span class="label">Portrait of model</span>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section cta container">
-    <h3>Love what you see?</h3>
-    <a href="booking.html" class="btn primary">📸 Book Your Session</a>
+  <!-- ===================== CTA ===================== -->
+  <section class="section">
+    <div class="container cta">
+      <div>
+        <h3 style="margin:0">Love what you see?</h3>
+      </div>
+      <div>
+        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📸</span> Book Your Session</a>
+      </div>
+    </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===================== FOOTER (same as index.html) ===================== -->
   <footer class="site-footer">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
       <div>© <span id="year"></span> Forever Frames</div>
@@ -88,20 +99,6 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-    // Load same background as index.html
-    const bgUrl = "assets/images/lens.jpg";
-    const img = new Image();
-    img.src = bgUrl;
-    img.onload = () => {
-      document.body.style.setProperty("background-image", `url('${bgUrl}')`);
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      document.body.style.backgroundAttachment = "fixed";
-    };
-  </script>
 </body>
 </html>
