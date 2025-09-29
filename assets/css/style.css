@@ -431,3 +431,12 @@ body::after {
   margin: 0 auto;
   max-width: 600px;
 }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.site-footer {
+  margin-top: auto; /* pushes footer to bottom */
+}
