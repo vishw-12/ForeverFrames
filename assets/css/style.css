@@ -114,7 +114,15 @@ body::after {
   border: 1px solid transparent;  /* so layout doesn't jump on hover */
   transition: all .25s ease;
 }
-
+/* Active nav link */
+.nav a.active {
+  opacity: 1;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #0b0b0f;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
 .nav a:hover,
 .nav a:focus {
   opacity: 1;
