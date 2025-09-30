@@ -46,7 +46,30 @@ function onMouseMove(e) {
   });
 }
 pv?.addEventListener('mousemove', onMouseMove);
+// Portfolio filter functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const filterBtns = document.querySelectorAll(".portfolio-filters .btn");
+  const cards = document.querySelectorAll(".portfolio-grid .card");
 
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const filter = btn.getAttribute("data-filter");
+
+      cards.forEach(card => {
+        const category = card.getAttribute("data-category");
+        if (filter === "all" || category === filter) {
+          card.classList.remove("hide");
+        } else {
+          card.classList.add("hide");
+        }
+      });
+    });
+  });
+});
 // 5. Magnetic hover effect
 document.querySelectorAll('.btn-magnetic').forEach(btn => {
   btn.addEventListener('mousemove', e => {
