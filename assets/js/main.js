@@ -1,53 +1,77 @@
-/* =========================================================
-   ForeverFrames Main JS
-   Shared interactions for all pages
-   ========================================================= */
+/* =========================
+   ForeverFrames Main Script
+   Handles nav, animations, parallax, buttons
+   ========================= */
 
-// ---------- NAVBAR SCROLL EFFECT ----------
-window.addEventListener("scroll", () => {
-  const header = document.querySelector(".site-header");
-  if (!header) return;
-  header.classList.toggle("scrolled", window.scrollY > 10);
+// 1. Mobile nav toggle
+const toggle = document.querySelector('.nav-toggle');
+const nav = document.getElementById('nav');
+toggle?.addEventListener('click', () => {
+  const expanded = toggle.getAttribute('aria-expanded') === 'true';
+  toggle.setAttribute('aria-expanded', String(!expanded));
+  nav.classList.toggle('show');
 });
 
-// ---------- MOBILE NAV TOGGLE ----------
-const navToggle = document.querySelector(".nav-toggle");
-const navMenu = document.querySelector("#nav");
+// 2. Navbar scroll effect
+const header = document.querySelector('.site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
 
-if (navToggle && navMenu) {
-  navToggle.addEventListener("click", () => {
-    const expanded = navToggle.getAttribute("aria-expanded") === "true" || false;
-    navToggle.setAttribute("aria-expanded", !expanded);
-    navMenu.classList.toggle("show");
+// 3. Reveal animations
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      io.unobserve(e.target);
+    }
   });
-}
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ---------- REVEAL ON SCROLL ----------
-const revealEls = document.querySelectorAll(".reveal");
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.9;
-  revealEls.forEach((el) => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < triggerBottom) el.classList.add("show");
-  });
-};
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
-
-// ---------- AUTO YEAR IN FOOTER ----------
-const yearSpan = document.getElementById("year");
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-// ---------- OPTIONAL: PARALLAX FOR HERO IMAGES ----------
-const heroPhotos = document.querySelectorAll(".card-photo");
-if (heroPhotos.length) {
-  window.addEventListener("mousemove", (e) => {
-    const { innerWidth, innerHeight } = window;
-    const x = (e.clientX / innerWidth - 0.5) * 10; // tilt range
-    const y = (e.clientY / innerHeight - 0.5) * 10;
-    heroPhotos.forEach((photo, i) => {
-      const depth = (i + 1) * 4; // stagger layers
-      photo.style.transform = `translate(${x / depth}%, ${y / depth}%)`;
+// 4. Hero parallax effect
+const pv = document.querySelector('.hero-visual');
+let rafId = null;
+function onMouseMove(e) {
+  if (!pv) return;
+  const rect = pv.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width - 0.5;
+  const y = (e.clientY - rect.top) / rect.height - 0.5;
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(() => {
+    pv.querySelectorAll('.card-photo').forEach((el, i) => {
+      const depth = (i + 1) * 6;
+      el.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
     });
   });
 }
+pv?.addEventListener('mousemove', onMouseMove);
+
+// 5. Magnetic hover effect
+document.querySelectorAll('.btn-magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width / 2;
+    const y = e.clientY - r.top - r.height / 2;
+    btn.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0,0)';
+  });
+});
+
+// 6. Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// 7. Lazy-load background
+window.addEventListener("load", () => {
+  const bgUrl = "assets/images/lens.jpg";
+  const img = new Image();
+  img.src = bgUrl;
+  img.onload = () => {
+    document.body.style.setProperty("background-image", `url('${bgUrl}')`);
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
+  };
+});
