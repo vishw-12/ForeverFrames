@@ -257,6 +257,34 @@ body::after {
 /* =========================
    PORTFOLIO PREVIEW
    ========================= */
+/* Portfolio Filters */
+.portfolio-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.portfolio-filters .btn {
+  padding: 8px 18px;
+  font-size: 14px;
+}
+.portfolio-filters .btn.active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #0a0a0a;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+
+/* Portfolio Grid (transition when filtering) */
+.portfolio-grid .card {
+  transition: opacity .3s ease, transform .3s ease;
+}
+.portfolio-grid .card.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
 .section { padding:66px 0; border-top:1px solid var(--border); }
 .section h2 {
   font-family:"Playfair Display",serif;
