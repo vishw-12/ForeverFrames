@@ -46,14 +46,14 @@ function onMouseMove(e) {
   });
 }
 pv?.addEventListener('mousemove', onMouseMove);
-// Portfolio filter functionality
+
+// 5. Portfolio filter functionality
 document.addEventListener("DOMContentLoaded", () => {
   const filterBtns = document.querySelectorAll(".portfolio-filters .btn");
   const cards = document.querySelectorAll(".portfolio-grid .card");
 
   filterBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-      // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
@@ -70,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-// 5. Magnetic hover effect
+
+// 6. Magnetic hover effect
 document.querySelectorAll('.btn-magnetic').forEach(btn => {
   btn.addEventListener('mousemove', e => {
     const r = btn.getBoundingClientRect();
@@ -83,10 +84,10 @@ document.querySelectorAll('.btn-magnetic').forEach(btn => {
   });
 });
 
-// 6. Footer year
+// 7. Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// 7. Lazy-load background
+// 8. Lazy-load background
 window.addEventListener("load", () => {
   const bgUrl = "assets/images/lens.jpg";
   const img = new Image();
@@ -99,10 +100,11 @@ window.addEventListener("load", () => {
   };
 });
 
-});
-// Lightbox functionality
+// 9. Lightbox functionality
 document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("lightbox");
+  if (!lightbox) return; // skip if not on portfolio detail page
+
   const lightboxImg = document.querySelector(".lightbox-img");
   const caption = document.querySelector(".lightbox-caption");
   const closeBtn = document.querySelector(".lightbox-close");
@@ -120,41 +122,29 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
   }
 
-  function closeLightbox() {
-    lightbox.classList.remove("show");
-  }
+  function closeLightbox() { lightbox.classList.remove("show"); }
+  function showNext() { currentIndex = (currentIndex + 1) % cards.length; openLightbox(currentIndex); }
+  function showPrev() { currentIndex = (currentIndex - 1 + cards.length) % cards.length; openLightbox(currentIndex); }
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % cards.length;
-    openLightbox(currentIndex);
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    openLightbox(currentIndex);
-  }
-
-  // Open lightbox on card click
+  // Open lightbox
   cards.forEach((card, index) => {
     card.addEventListener("click", e => {
-      e.preventDefault();
-      openLightbox(index);
+      // Only open lightbox if card has NO href (so your portfolio.html can still redirect)
+      if (!card.getAttribute("href")) {
+        e.preventDefault();
+        openLightbox(index);
+      }
     });
   });
 
-  // Button events
+  // Controls
   closeBtn.addEventListener("click", closeLightbox);
   nextBtn.addEventListener("click", showNext);
   prevBtn.addEventListener("click", showPrev);
-
-  // Close on background click
-  lightbox.addEventListener("click", e => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  // Close on ESC
+  lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") closeLightbox();
     if (e.key === "ArrowRight") showNext();
     if (e.key === "ArrowLeft") showPrev();
   });
+});
