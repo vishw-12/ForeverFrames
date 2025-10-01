@@ -4,61 +4,83 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portraits Portfolio — Forever Frames</title>
-  <meta name="description" content="Forever Frames — portraits photography highlights." />
-  <meta name="theme-color" content="#0b0b0f" />
+  <link rel="stylesheet" href="assets/css/style.css?v=4" />
 
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="Portraits Portfolio — Forever Frames" />
-  <meta property="og:description" content="Forever Frames — portraits photography highlights." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Forever Frames" />
-
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/css/style.css" as="style">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 </head>
-<body>
-  <div id="site-header"></div>
+<body class="portfolio">
 
-  
-<section class="page-hero small">
-  <div class="container">
-    <h1>Portraits</h1>
-    <p>Authentic portraits that feel like you.</p>
+  <!-- Background -->
+  <div class="lens-effect">
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-flare"></div>
   </div>
-</section>
 
-<section class="container gallery-grid">
-  <figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="Studio portrait" loading="lazy">
-  <figcaption>Studio portrait</figcaption>
-</figure>
-<figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop" alt="Outdoor headshot" loading="lazy">
-  <figcaption>Outdoor headshot</figcaption>
-</figure>
-<figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop" alt="Creative lighting" loading="lazy">
-  <figcaption>Creative lighting</figcaption>
-</figure>
-<figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&w=1200&auto=format&fit=crop" alt="Editorial look" loading="lazy">
-  <figcaption>Editorial look</figcaption>
-</figure>
-<figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1550525811-e5869dd03032?q=80&w=1200&auto=format&fit=crop" alt="Moody portrait" loading="lazy">
-  <figcaption>Moody portrait</figcaption>
-</figure>
-<figure class="gallery-card">
-  <img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?q=80&w=1200&auto=format&fit=crop" alt="City vibe" loading="lazy">
-  <figcaption>City vibe</figcaption>
-</figure>
-</section>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html">Forever Frames ∞</a>
+      <button class="nav-toggle" aria-expanded="false">☰</button>
+      <nav id="nav" class="nav">
+        <a href="portfolio.html" class="active">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="btn ghost">Contact</a>
+        <a href="booking.html" class="btn primary btn-magnetic">📅 Book Now</a>
+      </nav>
+    </div>
+  </header>
 
+  <!-- HERO -->
+  <section class="portfolio-hero glass">
+    <div class="container">
+      <h1 class="hero-title reveal">Wedding Portfolio</h1>
+      <p class="lead reveal">Capturing love, laughter, and timeless celebrations.</p>
+    </div>
+  </section>
 
-  <div id="site-footer"></div>
+  <!-- IMAGE GRID -->
+  <section class="section">
+    <div class="container">
+      <div class="cards">
+        <a href="assets/images/wedding1.jpg" class="card glightbox" data-gallery="weddings">
+          <img src="assets/images/wedding1.jpg" alt="Bride walking down the aisle">
+          <span class="label">Ceremony</span>
+        </a>
+        <a href="assets/images/wedding2.jpg" class="card glightbox" data-gallery="weddings">
+          <img src="assets/images/wedding2.jpg" alt="Wedding rings">
+          <span class="label">Details</span>
+        </a>
+        <a href="assets/images/wedding3.jpg" class="card glightbox" data-gallery="weddings">
+          <img src="assets/images/wedding3.jpg" alt="Couple first dance">
+          <span class="label">Reception</span>
+        </a>
+        <a href="assets/images/wedding4.jpg" class="card glightbox" data-gallery="weddings">
+          <img src="assets/images/wedding4.jpg" alt="Guests celebrating">
+          <span class="label">Celebration</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <div>© <span id="year"></span> Forever Frames</div>
+      <div class="footer-links">
+        <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
+        <a href="https://instagram.com/" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>const lightbox = GLightbox({ selector: '.glightbox' });</script>
 </body>
 </html>
