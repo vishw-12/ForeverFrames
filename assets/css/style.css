@@ -88,14 +88,20 @@ body::after {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 900;         /* bolder */
-  font-size: 1.25rem;       /* bigger text */
-  letter-spacing: 0.5px;
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+
+.logo-img {
+  height: 28px;           /* matches old SVG height */
+  width: auto;
+  display: block;
 }
 
 .logo .brand-text {
-  font-size: 1.35rem;       /* larger than normal nav links */
+  font-size: 1.35rem;
   font-weight: 800;
+  letter-spacing: .2px;
 }
 
 /* Base nav layout */
