@@ -3,15 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portraits Portfolio — Forever Frames</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=4" />
-
-  <!-- Lightbox -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
+  <title>Portraits — Forever Frames</title>
+  <meta name="description" content="Forever Frames wedding photography portfolio." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
-<body class="portfolio">
+<body>
 
-  <!-- Background -->
+  <!-- Camera lens background effect -->
   <div class="lens-effect">
     <div class="lens-ring"></div>
     <div class="lens-ring"></div>
@@ -19,72 +27,60 @@
     <div class="lens-flare"></div>
   </div>
 
-  <!-- NAVBAR -->
+  <!-- ===================== NAV ===================== -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="logo" href="index.html">Forever Frames ∞</a>
-      <button class="nav-toggle" aria-expanded="false">☰</button>
-      <nav id="nav" class="nav">
+      <a class="logo" href="index.html" aria-label="Forever Frames home">
+        <svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6a2 2 0 0 1 2-2h12a1 1 0 0 1 .8.4l1.8 2.4A2 2 0 0 1 21 8v10a2 2 0 0 1-2 2H5a1 1 0 0 1-1-1V6z" fill="currentColor" opacity=".18"></path>
+          <path d="M7 8h10M4 6v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-.4-1.2L18.8 4.4A2 2 0 0 0 17.2 4H6a2 2 0 0 0-2 2zm5 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z" stroke="currentColor" stroke-width="1.5" fill="none"></path>
+        </svg>
+        <span class="brand-text">Forever Frames ∞</span>
+      </a>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
+
+      <nav id="nav" class="nav" role="navigation">
         <a href="portfolio.html" class="active">Portfolio</a>
         <a href="services.html">Services</a>
         <a href="about.html">About</a>
         <a href="testimonials.html">Testimonials</a>
         <a href="contact.html" class="btn ghost">Contact</a>
-        <a href="booking.html" class="btn primary btn-magnetic">📅 Book Now</a>
+        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📅</span> Book Now</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- ===================== HERO ===================== -->
   <section class="portfolio-hero glass">
     <div class="container">
-      <h1 class="hero-title reveal">Wedding Portfolio</h1>
-      <p class="lead reveal">Capturing love, laughter, and timeless celebrations.</p>
-    </div>
-  </section>
-<!-- Back to Portfolio -->
-<!-- Back Button Sticky -->
-<div class="back-btn-wrap">
-  <a href="portfolio.html" class="btn ghost">← Back to Portfolio</a>
-</div>
-  <!-- IMAGE GRID -->
-  <section class="section">
-    <div class="container">
-      <div class="cards">
-        <a href="assets/images/wedding1.jpg" class="card glightbox" data-gallery="weddings">
-          <img src="assets/images/wedding1.jpg" alt="Bride walking down the aisle">
-          <span class="label">Ceremony</span>
-        </a>
-        <a href="assets/images/wedding2.jpg" class="card glightbox" data-gallery="weddings">
-          <img src="assets/images/wedding2.jpg" alt="Wedding rings">
-          <span class="label">Details</span>
-        </a>
-        <a href="assets/images/wedding3.jpg" class="card glightbox" data-gallery="weddings">
-          <img src="assets/images/wedding3.jpg" alt="Couple first dance">
-          <span class="label">Reception</span>
-        </a>
-        <a href="assets/images/wedding4.jpg" class="card glightbox" data-gallery="weddings">
-          <img src="assets/images/wedding4.jpg" alt="Guests celebrating">
-          <span class="label">Celebration</span>
-        </a>
-      </div>
+      <h1 class="hero-title reveal">Weddings</h1>
+      <p class="lead reveal">Our favorite wedding moments captured with timeless elegance.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===================== PHOTO GRID ===================== -->
+  <section class="section">
+    <div class="container cards">
+      <a class="card" href="assets/images/wedding1.jpg"><img src="assets/images/wedding1.jpg" alt="Wedding 1"></a>
+      <a class="card" href="assets/images/wedding2.jpg"><img src="assets/images/wedding2.jpg" alt="Wedding 2"></a>
+      <a class="card" href="assets/images/wedding3.jpg"><img src="assets/images/wedding3.jpg" alt="Wedding 3"></a>
+      <a class="card" href="assets/images/wedding4.jpg"><img src="assets/images/wedding4.jpg" alt="Wedding 4"></a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
   <footer class="site-footer">
     <div class="container footer-wrap">
       <div>© <span id="year"></span> Forever Frames</div>
       <div class="footer-links">
         <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
-        <a href="https://instagram.com/" target="_blank">Instagram</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </footer>
 
-  <!-- JS -->
+  <!-- Scripts -->
   <script src="assets/js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <script>const lightbox = GLightbox({ selector: '.glightbox' });</script>
 </body>
 </html>
