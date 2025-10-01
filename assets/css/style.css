@@ -311,6 +311,75 @@ body::after {
   font-weight:700;
 }
 .card:hover img { transform:scale(1.05); }
+/* Lightbox overlay */
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.lightbox.show {
+  display: flex;
+  animation: fadeIn .3s ease;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.6);
+}
+
+.lightbox-caption {
+  color: #f3f4f6;
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Close button */
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Prev/Next buttons */
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: white;
+  background: rgba(0,0,0,.4);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255,255,255,.2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 
 /* =========================
    CALL TO ACTION
