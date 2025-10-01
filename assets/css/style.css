@@ -507,3 +507,16 @@ body.portfolio .hero-title {
   font-size:clamp(36px,5.6vw,72px);
 }
 body.portfolio .portfolio-hero { padding:110px 0 70px; border-bottom:1px solid var(--border); }
+/* Sticky Back to Portfolio button */
+.back-btn-wrap {
+  position: sticky;
+  top: 80px; /* keeps it below navbar */
+  z-index: 900;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.back-btn-wrap .btn {
+  padding: 10px 20px;
+  font-size: 15px;
+}
