@@ -100,3 +100,61 @@ window.addEventListener("load", () => {
 });
 
 });
+// Lightbox functionality
+document.addEventListener("DOMContentLoaded", () => {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const caption = document.querySelector(".lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox-close");
+  const prevBtn = document.querySelector(".lightbox-prev");
+  const nextBtn = document.querySelector(".lightbox-next");
+  const cards = document.querySelectorAll(".portfolio-grid .card");
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    const img = cards[index].querySelector("img");
+    lightboxImg.src = img.src;
+    caption.textContent = img.alt;
+    lightbox.classList.add("show");
+    currentIndex = index;
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove("show");
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    openLightbox(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    openLightbox(currentIndex);
+  }
+
+  // Open lightbox on card click
+  cards.forEach((card, index) => {
+    card.addEventListener("click", e => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  // Button events
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+
+  // Close on background click
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrev();
+  });
