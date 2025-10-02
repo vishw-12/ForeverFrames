@@ -96,9 +96,8 @@ body::after {
 }
 
 .logo-img {
-  height: 32px;   /* keep logo consistent */
-  width: auto;    /* auto keeps proportions */
-  object-fit: contain;
+  height: 32px;   /* adjust size */
+  width: auto;    /* keeps proportions */
   display: block;
 }
 
