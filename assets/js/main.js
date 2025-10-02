@@ -148,3 +148,22 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowLeft") showPrev();
   });
 });
+{
+  "name": "Forever Frames",
+  "short_name": "ForeverFrames",
+  "icons": [
+    {
+      "src": "favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0b0b0f",
+  "background_color": "#0b0b0f",
+  "display": "standalone"
+}
