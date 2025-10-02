@@ -84,17 +84,21 @@ body::after {
   gap: 12px; height: 68px;
 }
 
+/* ---------- Logo ---------- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 10px; /* space between image and text */
   font-weight: 900;
   font-size: 1.25rem;
+  text-decoration: none;
+  color: var(--text);
 }
 
 .logo-img {
-  height: 28px;           /* matches old SVG height */
-  width: auto;
+  height: 32px;   /* keep logo consistent */
+  width: auto;    /* auto keeps proportions */
+  object-fit: contain;
   display: block;
 }
 
