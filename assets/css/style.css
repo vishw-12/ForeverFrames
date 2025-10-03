@@ -88,13 +88,11 @@ body::after {
    ========================== */
 .brand-text {
   font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  background: linear-gradient(90deg, #ff8a00, #e52e71); /* orange to pink gradient */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  vertical-align: middle;
+  font-weight: 600;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
 }
 /* ---------- Logo ---------- */
 .logo {
