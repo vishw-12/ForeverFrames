@@ -109,10 +109,31 @@ body::after {
   width: auto;
 }
 .logo-full {
-  height: 50px;    /* Adjust this number until it looks perfect */
+  height: 40px;      /* Default for desktop */
   width: auto;
   display: block;
   object-fit: contain;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .logo-full {
+    height: 36px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .logo-full {
+    height: 32px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .logo-full {
+    height: 28px;
+  }
 }
 /* Base nav layout */
 .nav { display:flex; align-items:center; gap:10px; }
