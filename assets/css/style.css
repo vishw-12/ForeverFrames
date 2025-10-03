@@ -109,7 +109,7 @@ body::after {
   width: auto;
 }
 .logo-full {
-  height: 45px;    /* Adjust this number until it looks perfect */
+  height: 50px;    /* Adjust this number until it looks perfect */
   width: auto;
   display: block;
   object-fit: contain;
