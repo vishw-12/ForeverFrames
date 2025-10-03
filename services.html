@@ -3,71 +3,137 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services & Pricing — Forever Frames</title>
-  <meta name="description" content="Photography services and pricing packages: events, weddings, and portraits across Ontario." />
-  <meta name="theme-color" content="#0b0b0f" />
-
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="Services & Pricing — Forever Frames" />
-  <meta property="og:description" content="Photography services and pricing packages: events, weddings, and portraits across Ontario." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Forever Frames" />
-
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/css/style.css" as="style">
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-  <div id="site-header"></div>
-
+  <title>Services — Forever Frames</title>
+  <meta name="description" content="Affordable, premium photography packages by Forever Frames — weddings, events, portraits, and more." />
   
-<section class="page-hero small">
-  <div class="container">
-    <h1>Services & Pricing</h1>
-    <p>Clear, flexible packages for every story.</p>
-  </div>
-</section>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<section class="container grid-3">
-  <div class="price-card">
-    <h3>Event Essentials</h3>
-    <p class="muted">2 hours • 75 edited photos</p>
-    <h2>$299</h2>
-    <ul class="check">
-      <li>Color-corrected, high-res images</li>
-      <li>Private gallery</li>
-      <li>48–72h highlight delivery</li>
-    </ul>
-    <a class="btn" href="booking.html">Book</a>
-  </div>
-  <div class="price-card featured">
-    <h3>Wedding Story</h3>
-    <p class="muted">6 hours • 300 edited photos</p>
-    <h2>$1499</h2>
-    <ul class="check">
-      <li>Timeline planning</li>
-      <li>Second shooter (optional)</li>
-      <li>Next-day highlights</li>
-    </ul>
-    <a class="btn" href="booking.html">Book</a>
-  </div>
-  <div class="price-card">
-    <h3>Portrait Session</h3>
-    <p class="muted">1.5 hours • 40 edited photos</p>
-    <h2>$199</h2>
-    <ul class="check">
-      <li>Location guidance</li>
-      <li>Posing support</li>
-      <li>Retouching included</li>
-    </ul>
-    <a class="btn" href="booking.html">Book</a>
-  </div>
-</section>
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon-180x180.png">
+  <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+  <link rel="manifest" href="assets/icons/site.webmanifest">
+</head>
+<body class="services">
 
-  <div id="site-footer"></div>
+  <!-- Background effect -->
+  <div class="lens-effect">
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-flare"></div>
+  </div>
 
+  <!-- ===================== NAV (same as index.html) ===================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html" aria-label="Forever Frames home">
+        <img src="assets/logo.png" alt="Forever Frames logo" class="logo-img">
+        <span class="brand-text">Forever Frames</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
+      <nav id="nav" class="nav" role="navigation">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="btn ghost">Contact</a>
+        <a href="booking.html" class="btn primary btn-magnetic">
+          <span class="icon">📅</span> Book Now
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero glass">
+    <div class="container">
+      <h1 class="hero-title reveal">Photography Packages for Every Story</h1>
+      <p class="lead reveal">Budget-friendly, transparent, and designed to fit your special moments.</p>
+      <!-- Seasonal Promo / Coupon -->
+      <div class="promo-tag reveal">
+        🎉 Festival Offer: <strong>15% OFF</strong> on all packages! Use code <span class="coupon">FEST15</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PACKAGES ===================== -->
+  <section class="section">
+    <div class="container grid-3">
+      <!-- Starter -->
+      <article class="package reveal glass">
+        <h3>Starter</h3>
+        <p class="price">$499</p>
+        <ul>
+          <li>2-hour coverage</li>
+          <li>20 professionally edited photos</li>
+          <li>Private online gallery</li>
+        </ul>
+        <a href="booking.html" class="btn primary btn-magnetic">Book Starter</a>
+      </article>
+
+      <!-- Standard -->
+      <article class="package reveal glass best-value">
+        <div class="tag">Best Value</div>
+        <h3>Standard</h3>
+        <p class="price">$999</p>
+        <ul>
+          <li>6-hour coverage</li>
+          <li>60 edited photos</li>
+          <li>Premium photo album + gallery</li>
+        </ul>
+        <a href="booking.html" class="btn primary btn-magnetic">Book Standard</a>
+      </article>
+
+      <!-- Premium -->
+      <article class="package reveal glass">
+        <h3>Premium</h3>
+        <p class="price">$1,999</p>
+        <ul>
+          <li>Full-day coverage</li>
+          <li>150+ edited photos</li>
+          <li>Cinematic highlight reel</li>
+          <li>Album + framed prints</li>
+        </ul>
+        <a href="booking.html" class="btn primary btn-magnetic">Book Premium</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===================== ADD-ONS ===================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="reveal">Add-ons & Upgrades</h2>
+      <div class="grid-3">
+        <div class="feature reveal">📸 Drone Coverage — $299</div>
+        <div class="feature reveal">🎞 Same-day highlights — $199</div>
+        <div class="feature reveal">📖 Extra albums & prints — from $149</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Forever Frames</div>
+      <div style="display:flex;gap:14px">
+        <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
