@@ -83,7 +83,19 @@ body::after {
   display: flex; align-items: center; justify-content: space-between;
   gap: 12px; height: 68px;
 }
-
+/* ==========================
+   Brand Logo Styling
+   ========================== */
+.brand-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  background: linear-gradient(90deg, #ff8a00, #e52e71); /* orange to pink gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  vertical-align: middle;
+}
 /* ---------- Logo ---------- */
 .logo {
   display: flex;
