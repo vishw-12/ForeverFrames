@@ -109,9 +109,10 @@ body::after {
   width: auto;
 }
 .logo-full {
-  height: 48px;   /* Adjust to fit nicely in header */
+  height: 40px;    /* Adjust this number until it looks perfect */
   width: auto;
   display: block;
+  object-fit: contain;
 }
 /* Base nav layout */
 .nav { display:flex; align-items:center; gap:10px; }
