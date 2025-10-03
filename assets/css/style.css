@@ -108,23 +108,11 @@ body::after {
   height: 42px; /* adjust size as needed */
   width: auto;
 }
-
-/* Brand text stacked */
-.brand-text {
-  display: flex;
-  flex-direction: column;
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 700;
-  line-height: 1.1;
-  text-transform: none; /* Keep original casing */
+.logo-full {
+  height: 48px;   /* Adjust to fit nicely in header */
+  width: auto;
+  display: block;
 }
-
-/* Each line of brand text */
-.brand-text .line {
-  font-size: 1.3rem; /* adjust based on header height */
-  color: #fff;
-}
-
 /* Base nav layout */
 .nav { display:flex; align-items:center; gap:10px; }
 
