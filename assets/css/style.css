@@ -95,26 +95,34 @@ body::after {
   text-transform: uppercase;
 }
 /* ---------- Logo ---------- */
+/* Logo container */
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px; /* space between image and text */
-  font-weight: 900;
-  font-size: 1.25rem;
+  gap: 10px;
   text-decoration: none;
-  color: var(--text);
 }
 
+/* Logo image */
 .logo-img {
-  height: 32px;   /* adjust size */
-  width: auto;    /* keeps proportions */
-  display: block;
+  height: 42px; /* adjust size as needed */
+  width: auto;
 }
 
-.logo .brand-text {
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: .2px;
+/* Brand text stacked */
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: none; /* Keep original casing */
+}
+
+/* Each line of brand text */
+.brand-text .line {
+  font-size: 1.3rem; /* adjust based on header height */
+  color: #fff;
 }
 
 /* Base nav layout */
