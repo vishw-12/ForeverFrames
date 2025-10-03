@@ -109,7 +109,7 @@ body::after {
   width: auto;
 }
 .logo-full {
-  height: 240px;      /* Default for desktop */
+  height: 200px;      /* Default for desktop */
   width: auto;
   display: block;
   object-fit: contain;
