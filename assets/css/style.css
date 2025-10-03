@@ -623,3 +623,38 @@ body.portfolio .portfolio-hero { padding:110px 0 70px; border-bottom:1px solid v
 @media (max-width: 960px) {
   .package { padding: 20px; }
 }
+/* =========================================================
+   PAGE-SPECIFIC TYPOGRAPHY ADJUSTMENTS
+   ========================================================= */
+
+/* Portfolio Page */
+body.portfolio h1.hero-title {
+  font-size: clamp(28px, 4vw, 48px); /* smaller than homepage hero */
+}
+
+body.portfolio p.lead {
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1.6;
+}
+
+/* Services Page */
+body.services h1.hero-title {
+  font-size: clamp(28px, 4vw, 46px);
+}
+
+body.services p.lead {
+  font-size: clamp(14px, 1.8vw, 18px);
+  line-height: 1.6;
+}
+
+/* General smaller sections (like package cards, portfolio filters) */
+.portfolio-hero h1,
+.services-hero h1 {
+  margin-bottom: 12px;
+}
+
+.portfolio-hero p,
+.services-hero p {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
