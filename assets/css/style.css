@@ -109,32 +109,40 @@ body::after {
   width: auto;
 }
 .logo-full {
-  height: 200px;      /* Default for desktop */
+  height: 200px;   /* Default for large desktop screens */
   width: auto;
   display: block;
   object-fit: contain;
 }
 
-/* Tablet */
+/* Large laptops / smaller desktops */
+@media (max-width: 1440px) {
+  .logo-full {
+    height: 160px;
+  }
+}
+
+/* Tablets landscape */
 @media (max-width: 1024px) {
   .logo-full {
-    height: 36px;
+    height: 120px;
   }
 }
 
-/* Mobile */
+/* Tablets portrait */
 @media (max-width: 768px) {
   .logo-full {
-    height: 32px;
+    height: 90px;
   }
 }
 
-/* Extra small devices */
+/* Mobile phones */
 @media (max-width: 480px) {
   .logo-full {
-    height: 28px;
+    height: 70px;
   }
 }
+
 /* Base nav layout */
 .nav { display:flex; align-items:center; gap:10px; }
 
