@@ -118,28 +118,28 @@ body::after {
 /* Large laptops / smaller desktops */
 @media (max-width: 1440px) {
   .logo-full {
-    height: 160px;
+    height: 180px;
   }
 }
 
 /* Tablets landscape */
 @media (max-width: 1024px) {
   .logo-full {
-    height: 120px;
+    height: 140px;
   }
 }
 
 /* Tablets portrait */
 @media (max-width: 768px) {
   .logo-full {
-    height: 90px;
+    height: 110px;
   }
 }
 
 /* Mobile phones */
 @media (max-width: 480px) {
   .logo-full {
-    height: 70px;
+    height: 90px;
   }
 }
 
