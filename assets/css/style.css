@@ -694,3 +694,63 @@ body.services p.lead {
   margin-bottom: 20px;
   color: var(--muted);
 }
+/* ===== Testimonials Page ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  padding: 1.8rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255,255,255,0.08);
+}
+
+.testimonial-card .stars {
+  color: #ffcc66;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.6rem;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  color: #e2e2e2;
+  margin-bottom: 1rem;
+}
+
+.testimonial-card .client {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.testimonial-card .client img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.testimonial-card .client h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.testimonial-card .client span {
+  font-size: 0.85rem;
+  color: #aaa;
+}
