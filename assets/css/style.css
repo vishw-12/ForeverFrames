@@ -759,6 +759,7 @@ body.services p.lead {
   padding: 3rem 1rem;
   border-radius: 20px;
   margin-top: 3rem;
+  text-align: center;
 }
 
 .review-form {
@@ -797,14 +798,21 @@ body.services p.lead {
   background: rgba(255,255,255,0.1);
 }
 
+.star-input {
+  display: flex;
+  gap: 4px;
+}
+
 .star-input span {
   font-size: 1.6rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, color 0.3s;
 }
 
-.star-input span:hover {
+.star-input span:hover,
+.star-input span.active {
   transform: scale(1.2);
+  color: #ffd700;
 }
 
 .review-form button {
