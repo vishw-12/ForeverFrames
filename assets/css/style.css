@@ -819,3 +819,19 @@ body.services p.lead {
   display: inline-block;
   margin-top: 1rem;
 }
+/* ===== Star Rating Glow Animation ===== */
+.star-input span {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.star-input span.active {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.star-input span:hover {
+  transform: scale(1.2);
+}
