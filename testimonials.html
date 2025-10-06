@@ -22,8 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
-
+  <link rel="stylesheet" href="assets/css/style.css?v=5">
 </head>
 
 <body class="testimonials-page">
@@ -38,9 +37,9 @@
   <!-- ===================== NAV ===================== -->
   <header class="site-header">
     <div class="container nav-wrap">
-       <a class="logo" href="index.html" aria-label="Forever Frames home" style="display:flex;align-items:center;">
-  <img src="assets/Forever-Frames.png" alt="Forever Frames" class="logo-full">
-</a>
+      <a class="logo" href="index.html" aria-label="Forever Frames home" style="display:flex;align-items:center;">
+        <img src="assets/Forever-Frames.png" alt="Forever Frames" class="logo-full">
+      </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
 
       <nav id="nav" class="nav" role="navigation">
@@ -67,7 +66,6 @@
   <!-- ===================== TESTIMONIALS ===================== -->
   <section class="section">
     <div class="container grid-3 testimonials-grid">
-      <!-- Testimonial 1 -->
       <article class="testimonial-card glass reveal">
         <div class="stars">★★★★★</div>
         <p>“Forever Frames captured our wedding day so beautifully! The emotions, the laughter, everything feels alive in every frame.”</p>
@@ -80,7 +78,6 @@
         </div>
       </article>
 
-      <!-- Testimonial 2 -->
       <article class="testimonial-card glass reveal">
         <div class="stars">★★★★★</div>
         <p>“Professional, creative, and super fun to work with! The turnaround time was amazing. Highly recommend for all events.”</p>
@@ -93,7 +90,6 @@
         </div>
       </article>
 
-      <!-- Testimonial 3 -->
       <article class="testimonial-card glass reveal">
         <div class="stars">★★★★☆</div>
         <p>“We booked Forever Frames for our family portraits — and wow, the photos are breathtaking! Subtle lighting and genuine smiles.”</p>
@@ -106,7 +102,6 @@
         </div>
       </article>
 
-      <!-- Testimonial 4 -->
       <article class="testimonial-card glass reveal">
         <div class="stars">★★★★★</div>
         <p>“They made us feel completely at ease. The candid shots are pure magic. We'll treasure these forever.”</p>
@@ -121,18 +116,32 @@
     </div>
   </section>
 
-  <!-- ===================== CTA ===================== -->
-  <section class="section">
-    <div class="container cta reveal">
-      <div>
-        <h3>Ready to join our happy clients?</h3>
-        <p>Book your session and let us tell your story through our lens.</p>
-      </div>
-      <div>
-        <a href="booking.html" class="btn primary btn-magnetic">
-          <span class="icon">📸</span> Book Now
-        </a>
-      </div>
+  <!-- ===================== WRITE YOUR REVIEW ===================== -->
+  <section class="section glass review-section">
+    <div class="container">
+      <h2 class="reveal">Write Your Review</h2>
+      <p class="lead reveal">We’d love to hear about your experience with Forever Frames!</p>
+
+      <form class="review-form reveal" onsubmit="event.preventDefault(); alert('Thank you for your feedback! ✨');">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label>Your Rating</label>
+          <div class="star-input">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Review</label>
+          <textarea id="message" rows="4" placeholder="Share your experience..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn primary btn-magnetic">Submit Review</button>
+      </form>
     </div>
   </section>
 
