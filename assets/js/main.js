@@ -148,3 +148,36 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.key === "ArrowLeft") showPrev();
   });
 });
+// ===== Interactive Star Rating =====
+document.addEventListener("DOMContentLoaded", () => {
+  const starContainers = document.querySelectorAll(".star-input");
+
+  starContainers.forEach(container => {
+    const stars = container.querySelectorAll("span");
+    stars.forEach((star, index) => {
+      star.addEventListener("click", () => {
+        // Clear all stars
+        stars.forEach(s => s.classList.remove("active"));
+        // Highlight selected and previous ones
+        for (let i = 0; i <= index; i++) {
+          stars[i].classList.add("active");
+        }
+        // Store rating value in container
+        container.dataset.rating = index + 1;
+      });
+
+      // Optional hover effect
+      star.addEventListener("mouseover", () => {
+        stars.forEach((s, i) => {
+          s.style.color = i <= index ? "#ffd700" : "#888";
+        });
+      });
+
+      star.addEventListener("mouseleave", () => {
+        stars.forEach((s, i) => {
+          s.style.color = s.classList.contains("active") ? "#ffd700" : "#fff";
+        });
+      });
+    });
+  });
+});
