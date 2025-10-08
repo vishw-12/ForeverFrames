@@ -11,7 +11,14 @@ toggle?.addEventListener('click', () => {
   toggle.setAttribute('aria-expanded', String(!expanded));
   nav.classList.toggle('show');
 });
-
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+});
+window.addEventListener("load", () => {
+  document.querySelectorAll(".lens-ring").forEach(el => {
+    el.style.animationPlayState = "running";
+  });
+});
 // 2. Navbar scroll effect
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
