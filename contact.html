@@ -3,59 +3,106 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Forever Frames</title>
-  <meta name="description" content="Contact Forever Frames for photography inquiries and collaborations." />
-  <meta name="theme-color" content="#0b0b0f" />
+  <title>Contact Us — Forever Frames</title>
+  <meta name="description" content="Contact Forever Frames for photography bookings, inquiries, or collaborations across Ontario." />
 
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="Contact — Forever Frames" />
-  <meta property="og:description" content="Contact Forever Frames for photography inquiries and collaborations." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Forever Frames" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64x64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon-180x180.png">
+  <link rel="manifest" href="assets/icons/site.webmanifest">
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/css/style.css" as="style">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
-<body>
-  <div id="site-header"></div>
 
-  
-<section class="page-hero small">
-  <div class="container">
-    <h1>Contact</h1>
-    <p>For questions, collaborations, or quotes — reach out below.</p>
+<body class="contact-page">
+  <!-- Camera Lens Background -->
+  <div class="lens-effect">
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-ring"></div>
+    <div class="lens-flare"></div>
   </div>
-</section>
 
-<section class="container two-col">
-  <div>
-    <h3>Email</h3>
-    <p><a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a></p>
-    <h3>Instagram</h3>
-    <p><a href="https://instagram.com/" target="_blank" rel="noopener">DM me on Instagram</a></p>
-    <h3>Location</h3>
-    <p>Ontario, Canada</p>
-  </div>
-  <div>
-    <form class="form" action="https://formspree.io/f/your-form-id" method="POST">
-      <label>Your Email
-        <input type="email" name="email" required placeholder="you@example.com">
-      </label>
-      <label>Subject
-        <input name="subject" required placeholder="How can I help?">
-      </label>
-      <label>Message
-        <textarea name="message" rows="6" required placeholder="Write your message…"></textarea>
-      </label>
-      <button class="btn" type="submit">Send</button>
-    </form>
-  </div>
-</section>
+  <!-- ===================== NAV ===================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html" aria-label="Forever Frames home" style="display:flex;align-items:center;">
+        <img src="assets/Forever-Frames.png" alt="Forever Frames logo" class="logo-full">
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
 
+      <nav class="nav" id="nav" role="navigation">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="active btn ghost">Contact</a>
+        <a href="booking.html" class="btn primary btn-magnetic"><span class="icon">📅</span> Book Now</a>
+      </nav>
+    </div>
+  </header>
 
-  <div id="site-footer"></div>
+  <!-- ===================== HERO ===================== -->
+  <section class="hero glass">
+    <div class="container center">
+      <h1 class="reveal">Contact Us</h1>
+      <p class="lead reveal">We’d love to hear from you! Fill out the form and we’ll get back to you shortly.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT FORM ===================== -->
+  <section class="section glass contact-section">
+    <div class="container">
+      <h2 class="reveal">Get In Touch</h2>
+      <p class="lead reveal">Have a question, booking inquiry, or just want to say hello? Drop us a message below.</p>
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="review-form reveal">
+        <!-- Replace this with your real Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+        <!-- Redirect to thank-you page -->
+        <input type="hidden" name="redirect" value="thanks.html">
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn primary btn-magnetic">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>© <span id="year"></span> Forever Frames</div>
+      <div style="display:flex;gap:14px;">
+        <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
   <script src="assets/js/main.js"></script>
 </body>
