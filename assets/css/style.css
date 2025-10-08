@@ -1035,3 +1035,147 @@ body {
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 10px 25px rgba(137,240,194,0.3);
 }
+/* =========================================================
+   UNIFIED HERO STYLING + SMOOTH PAGE TRANSITION (ALL PAGES)
+   ========================================================= */
+
+/* 🔹 Consistent Hero Layout */
+.hero,
+.portfolio-hero,
+.services-hero,
+.about-hero,
+.testimonials-hero {
+  padding: 70px 0 45px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  animation: heroGlow 1.2s ease-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+/* 🔹 Universal Title Styling */
+.hero h1,
+.portfolio-hero h1,
+.services-hero h1,
+.about-hero h1,
+.testimonials-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(40px, 4.8vw, 58px);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.9));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.15s;
+  opacity: 0;
+}
+
+/* 🔹 Subheading (Lead) Style */
+.hero p.lead,
+.portfolio-hero p.lead,
+.services-hero p.lead,
+.about-hero p.lead,
+.testimonials-hero p.lead {
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto 10px;
+  line-height: 1.7;
+  animation: fadeUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* 🔹 Optional Accent Line Under Title */
+.hero h1::after,
+.portfolio-hero h1::after,
+.services-hero h1::after,
+.about-hero h1::after,
+.testimonials-hero h1::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  margin: 10px auto 0;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: 999px;
+  animation: lineGrow 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+/* =========================================================
+   SMOOTH ANIMATIONS (FADE, SLIDE, LINE)
+   ========================================================= */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroGlow {
+  0% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineGrow {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 60px;
+    opacity: 1;
+  }
+}
+
+/* 🔹 Smooth Page Fade Transition */
+body {
+  animation: pageFade 0.8s ease-in-out;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* 🔹 Mobile Optimization */
+@media (max-width: 768px) {
+  .hero,
+  .portfolio-hero,
+  .services-hero,
+  .about-hero,
+  .testimonials-hero {
+    padding: 55px 0 35px;
+  }
+
+  .hero h1,
+  .portfolio-hero h1,
+  .services-hero h1,
+  .about-hero h1,
+  .testimonials-hero h1 {
+    font-size: clamp(30px, 6vw, 42px);
+  }
+}
