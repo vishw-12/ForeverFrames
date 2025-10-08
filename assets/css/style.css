@@ -65,17 +65,18 @@ body::before {
   }
 }
 
-/* Subtle noise overlay (SVG, no external file) */
+/* Subtle static noise overlay (optimized & instant load) */
 body::after {
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-2;              /* keep same stacking as before */
-  opacity:.07;
-  pointer-events:none;
-  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.35"/></svg>');
-  background-size:120px 120px;
-  mix-blend-mode:soft-light;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2P4z8DwHwAEAQH/0mW5iwAAAABJRU5ErkJggg==");
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
 }
 
 /* =========================
