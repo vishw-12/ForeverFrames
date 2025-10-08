@@ -512,31 +512,6 @@ body::after {
   0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
   50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
 }
-/* ---- Rotating lens flare with brand colors ---- */
-.lens-flare {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 900px;
-  height: 900px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: conic-gradient(
-    from 0deg,
-    rgba(137,240,194,0.18) 0deg,   /* mint */
-    rgba(138,180,248,0.18) 60deg,  /* blue */
-    rgba(255,255,255,0.08) 120deg, /* subtle white */
-    rgba(137,240,194,0) 200deg,
-    rgba(138,180,248,0) 360deg
-  );
-  animation: rotateFlare 14s linear infinite;
-  mix-blend-mode: screen;
-  pointer-events: none;
-}
-@keyframes rotateFlare {
-  0%   { transform: translate(-50%, -50%) rotate(0deg); }
-  100% { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 /* ===== ADDITIONS THAT WON'T BREAK HOMEPAGE ===== */
 
