@@ -1179,3 +1179,104 @@ body {
     font-size: clamp(30px, 6vw, 42px);
   }
 }
+/* =========================================================
+   TESTIMONIALS PAGE — UNIFIED TYPOGRAPHY & VISUAL HARMONY
+   ========================================================= */
+
+/* Section Title already uses hero style, so keep consistent spacing */
+.testimonials-page .hero,
+.testimonials-page .testimonials-hero {
+  padding: 70px 0 45px;
+  text-align: center;
+}
+
+/* Ensure testimonial cards match brand typography */
+.testimonial-card {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 1.05rem; /* match body text size from other pages */
+  line-height: 1.7;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 18px;
+  padding: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(180%);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Review stars — consistent with brand glow */
+.testimonial-card .stars {
+  color: #ffd700;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+}
+
+/* Review paragraph text — unified size & tone */
+.testimonial-card p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1.4rem;
+  font-weight: 400;
+}
+
+/* Client name and role — match Inter weight & sizing */
+.testimonial-card .client {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.testimonial-card .client img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.testimonial-card .client h4 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.1rem; /* same as subheading across site */
+  letter-spacing: 0.3px;
+}
+
+.testimonial-card .client span {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Match spacing between testimonials */
+.testimonials-grid {
+  margin-top: 3rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+/* Adjust responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .testimonial-card {
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+
+  .testimonial-card .client h4 {
+    font-size: 1rem;
+  }
+
+  .testimonial-card .client span {
+    font-size: 0.9rem;
+  }
+}
