@@ -867,3 +867,78 @@ body.services p.lead {
   transform: scale(1.1);
   box-shadow: 0 8px 24px rgba(137, 240, 194, 0.4);
 }
+/* =========================================================
+   GLOBAL HERO & TYPOGRAPHY BALANCE FIX
+   ========================================================= */
+
+/* Consistent hero spacing for all pages */
+.hero,
+.portfolio-hero,
+.services-hero,
+.about-hero,
+.testimonials-hero {
+  padding: 80px 0 50px; /* smaller top/bottom */
+  border-bottom: 1px solid var(--border);
+}
+
+/* Centered layout consistency */
+.hero .container.center,
+.portfolio-hero .container.center,
+.services-hero .container.center,
+.about-hero .container.center,
+.testimonials-hero .container.center {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Unified heading style across all pages */
+.hero h1,
+.portfolio-hero h1,
+.services-hero h1,
+.about-hero h1,
+.testimonials-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(38px, 4.5vw, 56px);
+  line-height: 1.15;
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff, rgba(255,255,255,0.85));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Unified subheading / lead paragraph */
+.hero p.lead,
+.portfolio-hero p.lead,
+.services-hero p.lead,
+.about-hero p.lead,
+.testimonials-hero p.lead {
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 20px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Reduce excessive vertical spacing on smaller screens */
+@media (max-width: 768px) {
+  .hero,
+  .portfolio-hero,
+  .services-hero,
+  .about-hero,
+  .testimonials-hero {
+    padding: 60px 0 40px;
+  }
+
+  .hero h1,
+  .portfolio-hero h1,
+  .services-hero h1,
+  .about-hero h1,
+  .testimonials-hero h1 {
+    font-size: clamp(30px, 6vw, 46px);
+  }
+}
