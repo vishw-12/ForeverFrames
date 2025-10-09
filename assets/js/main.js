@@ -1,4 +1,3 @@
-Skip to content
 
 /* =========================
    ForeverFrames Main Script
