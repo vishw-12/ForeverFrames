@@ -1,47 +1,5 @@
 Skip to content
-Navigation Menu
-vishw-12
-ForeverFrames
 
-Type / to search
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-Commit f6572b9
-vishw-12
-vishw-12
-authored
-yesterday
-·
-·
-Verified
-Update main.js
-main
-1 parent 
-b7079ee
- commit 
-f6572b9
-File tree
-Filter files…
-assets/js
-main.js
-1 file changed
-+16
--0
-lines changed
-Search within code
- 
-‎assets/js/main.js‎
-+16
-Lines changed: 16 additions & 0 deletions
-Original file line number	Diff line number	Diff line change
-@@ -1,183 +1,199 @@
 /* =========================
    ForeverFrames Main Script
    Handles nav, animations, parallax, buttons
