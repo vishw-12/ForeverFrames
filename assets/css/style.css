@@ -49,14 +49,26 @@ body {
 }
 /* ---------- 3) Fast Background (no heavy images) ---------- */
 /* Gradient + tiny grain render instantly */
-body::before{
-  content:"";position:fixed;inset:0;z-index:-2;
-  background:
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+
+  /* Your image appears first */
+  background-image:
+    url("assets/images/lens.jpg"),
     radial-gradient(800px 500px at 20% 20%, rgba(137,240,194,.06), transparent 70%),
     radial-gradient(700px 500px at 80% 10%, rgba(138,180,248,.08), transparent 70%),
     radial-gradient(600px 400px at 50% 100%, rgba(255,108,168,.06), transparent 70%),
-    linear-gradient(180deg,#0b0b0f,#0a0a10);
-  background-attachment:fixed;background-size:cover;background-repeat:no-repeat;
+    linear-gradient(180deg, #0b0b0f, #0a0a10);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  animation: subtleParallax 24s ease-in-out infinite alternate;
+  will-change: transform;
 }
 body::after{
   content:"";position:fixed;inset:0;z-index:-2;opacity:.05;pointer-events:none;
