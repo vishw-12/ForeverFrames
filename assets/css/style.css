@@ -25,7 +25,28 @@ img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .container{max-width:1200px;margin:0 auto;padding:0 20px}
 html{overflow-y:scroll} /* prevent layout jump */
+/* Fast, always-on background image */
 
+body {
+  background-color: var(--bg);
+  /* Fallback for older browsers */
+  background-image: url("assets/images/lens.jpg");
+  /* Modern formats override when supported */
+  background-image: image-set(
+    url("assets/images/lens.avif") type("image/avif"),
+    url("assets/images/lens.webp") type("image/webp"),
+    url("assets/images/lens.jpg") type("image/jpeg")
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* feels premium on desktop */
+}
+
+/* Avoid iOS jank with fixed backgrounds */
+@media (hover: none) and (pointer: coarse) {
+  body { background-attachment: scroll; }
+}
 /* ---------- 3) Fast Background (no heavy images) ---------- */
 /* Gradient + tiny grain render instantly */
 body::before{
