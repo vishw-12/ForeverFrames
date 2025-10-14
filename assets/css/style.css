@@ -1454,3 +1454,96 @@ body.portfolio .site-footer {
     padding-bottom: 20px;
   }
 }
+/* =========================
+   PORTFOLIO GRID SPACING + FOOTER ALIGNMENT FIX
+   ========================= */
+
+/* Make the portfolio page act as a full-page flex layout */
+body.portfolio {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure hero and main grid expand naturally */
+body.portfolio main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Portfolio hero section should not overflow */
+body.portfolio .portfolio-hero {
+  flex-shrink: 0;
+  padding-bottom: 40px;
+}
+
+/* Portfolio grid container — always expands */
+body.portfolio .portfolio-grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 0 60px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+/* Cards behave consistently in height */
+body.portfolio .portfolio-grid .card {
+  aspect-ratio: 4 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+body.portfolio .portfolio-grid .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* When filtering hides cards, remove vertical collapse flicker */
+body.portfolio .portfolio-grid .card.hide {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Section cleanup — prevent double padding */
+body.portfolio .section {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Footer sticks perfectly */
+body.portfolio .site-footer {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+/* Mobile tuning */
+@media (max-width: 768px) {
+  body.portfolio .portfolio-grid {
+    gap: 14px;
+    padding: 10px 0 40px;
+  }
+
+  body.portfolio .portfolio-grid .card {
+    aspect-ratio: 3 / 2;
+    border-radius: 12px;
+  }
+}
+
+/* iPad fix — ensure no white gap at bottom */
+@supports (-webkit-touch-callout: none) {
+  body.portfolio {
+    min-height: -webkit-fill-available;
+  }
+}
