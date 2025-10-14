@@ -1367,3 +1367,54 @@ font-size: clamp(30px, 6vw, 42px);
     font-size: 0.9rem;
   }
 }
+/* =========================
+   FIX EXTRA SPACE BELOW FOOTER (TABLET + MOBILE)
+   ========================= */
+
+/* Make sure background covers full page height */
+html, body {
+  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure your main content fills available space */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Force footer to stick at bottom when content is short */
+.site-footer {
+  margin-top: auto;
+}
+
+/* Make background layers match full screen height */
+body::before,
+body::after {
+  height: 100vh;
+  min-height: 100vh;
+  bottom: 0;
+}
+
+/* Prevent iPad Safari from creating fake extra space */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: -webkit-fill-available;
+  }
+  body::before,
+  body::after {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Optional: smoother viewport scaling for tablets */
+@media (max-width: 1024px) {
+  html, body {
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+  .site-footer {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
