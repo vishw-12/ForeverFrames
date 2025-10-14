@@ -197,3 +197,29 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 });
+/* =========================
+   Optimized Loader & Smoothness Fix
+   ========================= */
+
+// Preload background first
+const preloadBg = new Image();
+preloadBg.src = "assets/images/bg-gradient.jpg";
+
+// Once DOM is ready, start light animations
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("ready");
+});
+
+// Hero fade-in after background is loaded
+preloadBg.onload = () => {
+  requestAnimationFrame(() => {
+    document.body.classList.add("bg-loaded");
+  });
+};
+
+// Disable parallax or heavy transforms on small screens
+if (window.innerWidth < 768) {
+  document.querySelectorAll(".card-photo").forEach(el => {
+    el.style.transform = "none";
+  });
+}
