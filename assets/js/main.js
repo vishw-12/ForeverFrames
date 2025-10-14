@@ -223,3 +223,13 @@ if (window.innerWidth < 768) {
     el.style.transform = "none";
   });
 }
+// Smooth height transition after filtering
+const grid = document.querySelector('.portfolio-grid');
+if (grid) {
+  const observer = new MutationObserver(() => {
+    grid.style.transition = 'min-height 0.4s ease';
+    grid.style.minHeight = `${grid.scrollHeight}px`;
+    setTimeout(() => (grid.style.minHeight = ''), 400);
+  });
+  observer.observe(grid, { childList: true, subtree: true });
+}
