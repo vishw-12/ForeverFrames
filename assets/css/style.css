@@ -1269,3 +1269,101 @@ font-size: clamp(30px, 6vw, 42px);
   .portfolio-filters { flex-wrap: wrap; }
   html { background-attachment: scroll; } /* prevents mobile lag */
 }
+/* =========================
+   RESPONSIVE HERO & PHOTO ADJUSTMENTS
+   ========================= */
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+  .hero-visual {
+    min-height: 380px; /* smaller hero container */
+  }
+
+  .card-photo {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .card-photo img {
+    border-radius: 16px;
+    object-fit: cover;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .hero-visual {
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-photo {
+    position: relative !important;
+    width: 90% !important;
+    margin: 0 auto 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+
+  .card-photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+
+  /* reduce vertical gaps between stacked photos */
+  .p1, .p2, .p3 {
+    position: relative !important;
+    width: 100% !important;
+    aspect-ratio: 4/3;
+    margin-bottom: 16px;
+  }
+
+  /* keep badges compact */
+  .badge {
+    transform: scale(0.9);
+  }
+
+  /* prevent hero from overflowing screen */
+  .hero {
+    padding: 60px 0 40px;
+  }
+
+  /* tweak heading */
+  .hero h1 {
+    font-size: clamp(28px, 6vw, 40px);
+  }
+
+  .hero p.lead {
+    font-size: 0.95rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .hero-visual {
+    min-height: 260px;
+  }
+
+  .card-photo img {
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+  }
+
+  .hero {
+    padding: 50px 0 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(24px, 7vw, 36px);
+  }
+
+  .hero p.lead {
+    font-size: 0.9rem;
+  }
+}
