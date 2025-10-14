@@ -957,11 +957,6 @@ animation-fill-mode: both;
 animation-delay: 0.45s;
 }
 
-/* Smooth overall transition for page entry */
-body {
-animation: pageFade 0.8s ease-in-out;
-}
-
 @keyframes pageFade {
 from {
 opacity: 0;
