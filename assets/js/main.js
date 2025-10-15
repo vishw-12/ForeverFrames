@@ -271,3 +271,7 @@ function disableParallaxIfMobile() {
 window.addEventListener("resize", disableParallaxIfMobile);
 window.addEventListener("orientationchange", disableParallaxIfMobile);
 disableParallaxIfMobile();
+window.addEventListener("load", () => {
+  const heroVisual = document.querySelector(".hero-visual");
+  setTimeout(() => heroVisual.classList.add("loaded"), 1800);
+});
