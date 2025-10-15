@@ -1676,3 +1676,74 @@ body.portfolio .site-footer {
     font-size: 0.95rem;
   }
 }
+/* =========================================================
+   🌐 MOBILE & TABLET RESPONSIVE FIX
+   Fix header/footer visibility when browser bars hide/show
+   ========================================================= */
+
+/* Make sure body always fills viewport, accounting for mobile browser UI changes */
+html, body {
+  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Use dynamic viewport height variable to prevent shrinking when address bar hides */
+:root {
+  --vh: 100vh;
+}
+
+body {
+  min-height: calc(var(--vh, 1vh) * 100);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure header & footer stay visible and not clipped */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(16, 16, 23, 0.25);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+}
+
+.site-footer {
+  position: relative;
+  z-index: 900;
+  margin-top: auto;
+  padding-bottom: env(safe-area-inset-bottom, 20px); /* For iPhones with notches */
+}
+
+/* Ensure Scroll-to-Top button stays above footer and not hidden */
+#scrollTopBtn {
+  position: fixed;
+  bottom: calc(30px + env(safe-area-inset-bottom, 12px));
+  right: 24px;
+  z-index: 1200;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Make sure the nav menu never gets cut off when opened */
+@media (max-width: 960px) {
+  .nav {
+    max-height: calc(var(--vh, 1vh) * 100 - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Extra protection for iPad Safari fullscreen mode */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: -webkit-fill-available;
+  }
+  body {
+    min-height: -webkit-fill-available;
+  }
+  .site-footer {
+    padding-bottom: calc(env(safe-area-inset-bottom, 20px));
+  }
+}
