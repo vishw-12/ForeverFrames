@@ -888,17 +888,42 @@ body.portfolio .site-footer { margin-top:auto; }
 }
 
 /* =========================================================
-   FIX — HERO PHOTO ALIGNMENT (TABLET + MOBILE OVERRIDE)
+   HERO VISUAL — RESPONSIVE + RESTORE DESKTOP LAYERING
    ========================================================= */
 
-/* Tablets & small desktops (≤ 1024px) */
+/* 🔹 Desktop (default layered layout) */
+.hero-visual {
+  position: relative;
+  min-height: 480px;
+}
+
+.card-photo {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transform-style: preserve-3d;
+}
+
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Original layered positions */
+.p1 { top: 0; right: 0; width: 60%; aspect-ratio: 4 / 5; }
+.p2 { bottom: 14%; left: 0; width: 46%; aspect-ratio: 4 / 3; }
+.p3 { bottom: 0; right: 10%; width: 38%; aspect-ratio: 1 / 1; }
+
+/* 🔹 Tablet (balanced 2-column layout, no overlap) */
 @media (max-width: 1024px) {
   .hero-visual {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+    position: relative;
     min-height: auto;
   }
 
@@ -906,26 +931,22 @@ body.portfolio .site-footer { margin-top:auto; }
   .p1, .p2, .p3 {
     position: relative !important;
     top: auto !important;
-    bottom: auto !important;
     left: auto !important;
     right: auto !important;
+    bottom: auto !important;
     transform: none !important;
-    width: 45% !important;          /* two per row on iPad */
+    width: 100% !important;
     aspect-ratio: 4 / 3;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
   }
 
   .card-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 16px;
   }
 }
 
-/* Mobile phones (≤ 768px) */
+/* 🔹 Mobile (stacked, centered) */
 @media (max-width: 768px) {
   .hero-visual {
     display: flex;
@@ -937,92 +958,21 @@ body.portfolio .site-footer { margin-top:auto; }
 
   .card-photo,
   .p1, .p2, .p3 {
-    width: 90% !important;
-    aspect-ratio: 4 / 3;
-    border-radius: 14px;
     position: relative !important;
     top: auto !important;
     left: auto !important;
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
+    width: 90% !important;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
   }
 
   .card-photo img {
     width: 100%;
     height: auto;
     border-radius: 14px;
-  }
-}
-/* =========================================================
-   PROFESSIONAL HERO VISUAL — MOBILE/TABLET POLISH
-   ========================================================= */
-
-/* Shared card styling */
-.hero-visual .card-photo {
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-/* Smooth zoom & lift on hover/tap */
-.hero-visual .card-photo:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
-}
-
-/* Soft gradient overlay for cinematic depth */
-.hero-visual .card-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%);
-  pointer-events: none;
-}
-
-/* Responsive spacing for stack layout */
-@media (max-width: 1024px) {
-  .hero-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 28px;
-    padding-top: 10px;
-    padding-bottom: 20px;
-  }
-
-  .hero-visual .card-photo {
-    width: 85%;
-    aspect-ratio: 4/3;
-    max-width: 520px;
-  }
-}
-
-/* Mobile refinement */
-@media (max-width: 768px) {
-  .hero-visual {
-    gap: 22px;
-  }
-  .hero-visual .card-photo {
-    width: 90%;
-    max-width: 480px;
-    border-radius: 14px;
-  }
-  .hero-visual .card-photo::after {
-    background: linear-gradient(180deg, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.45) 100%);
-  }
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-visual {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .hero-visual .card-photo {
-    width: 100%;
-    max-width: none;
   }
 }
