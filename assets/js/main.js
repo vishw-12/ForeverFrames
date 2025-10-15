@@ -247,9 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-// Fix for mobile viewport height issues (header/footer visibility)
+// Dynamic viewport height fix for mobile Safari / Chrome
 function setVhUnit() {
-  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 window.addEventListener('resize', setVhUnit);
 window.addEventListener('orientationchange', setVhUnit);
