@@ -888,23 +888,30 @@ body.portfolio .site-footer { margin-top:auto; }
 }
 
 /* =========================================================
-   HERO VISUAL — DESKTOP STACK + MOBILE COLUMN LAYOUT
+   HERO VISUAL — FLOAT-IN ANIMATION + STACK LAYOUT
    ========================================================= */
 
-/* Desktop (default stacked layout) */
 .hero-visual {
   position: relative;
-  min-height: 480px;
+  min-height: 500px;
+  width: 50%;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
 }
 
+/* Base card styling */
 .card-photo {
   position: absolute;
   overflow: hidden;
   border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  animation: floatIn 1s ease forwards;
 }
 
 .card-photo img {
@@ -912,17 +919,68 @@ body.portfolio .site-footer { margin-top:auto; }
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 20px;
 }
 
-/* Layered photo positions for desktop */
-.p1 { top: 0; right: 0; width: 60%; aspect-ratio: 4 / 5; z-index: 3; }
-.p2 { bottom: 18%; left: 0; width: 48%; aspect-ratio: 4 / 3; z-index: 2; }
-.p3 { bottom: 0; right: 14%; width: 38%; aspect-ratio: 1 / 1; z-index: 1; }
+/* Final stacked layout positions */
+.p1 {
+  top: 0;
+  right: 0;
+  width: 60%;
+  aspect-ratio: 4 / 5;
+  z-index: 3;
+  animation-delay: 0.3s;
+}
+.p2 {
+  top: 40%;
+  left: 5%;
+  width: 55%;
+  aspect-ratio: 4 / 3;
+  z-index: 2;
+  animation-delay: 0.6s;
+}
+.p3 {
+  bottom: 0;
+  right: 10%;
+  width: 45%;
+  aspect-ratio: 1 / 1;
+  z-index: 1;
+  animation-delay: 0.9s;
+}
 
-/* Subtle hover lift for desktop */
+/* Keyframes for slide + fade-in */
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Optional gentle floating loop once visible */
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-6px) scale(1.01); }
+}
+
+/* Start subtle float after appearing */
+.hero-visual.loaded .card-photo {
+  animation: subtleFloat 6s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* Hover effect (desktop only) */
 .card-photo:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px) scale(1.03);
+  z-index: 5;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
 }
 
 /* =========================================================
@@ -937,12 +995,13 @@ body.portfolio .site-footer { margin-top:auto; }
   }
 
   .hero-visual {
+    width: 100%;
+    margin-top: 40px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
-    margin-top: 40px; /* space below text */
     min-height: auto;
   }
 
@@ -954,22 +1013,16 @@ body.portfolio .site-footer { margin-top:auto; }
     right: auto !important;
     bottom: auto !important;
     transform: none !important;
+    opacity: 1 !important;
     width: 75% !important;
     aspect-ratio: 4 / 3;
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  .card-photo img {
-    border-radius: 16px;
+    animation: none !important;
   }
 }
 
-/* Slightly smaller and centered for small phones */
 @media (max-width: 600px) {
   .card-photo,
   .p1, .p2, .p3 {
     width: 90% !important;
-    aspect-ratio: 4 / 3;
   }
 }
