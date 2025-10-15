@@ -255,3 +255,19 @@ function setVhUnit() {
 window.addEventListener('resize', setVhUnit);
 window.addEventListener('orientationchange', setVhUnit);
 setVhUnit();
+// ===== Responsive Parallax Disable / Reset =====
+function disableParallaxIfMobile() {
+  const isSmall = window.innerWidth < 1024; // disable on iPad & mobile
+  const cards = document.querySelectorAll(".card-photo");
+
+  if (isSmall) {
+    cards.forEach(el => el.style.transform = "none");
+    pv?.removeEventListener("mousemove", onMouseMove);
+  } else {
+    pv?.addEventListener("mousemove", onMouseMove);
+  }
+}
+
+window.addEventListener("resize", disableParallaxIfMobile);
+window.addEventListener("orientationchange", disableParallaxIfMobile);
+disableParallaxIfMobile();
