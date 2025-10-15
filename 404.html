@@ -14,20 +14,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <link rel="stylesheet" href="assets/css/style.css?v=8">
+
   <style>
     /* =========================================================
-       404 PAGE — Cinematic Minimalism
+       404 PAGE — Cinematic Forever Frames Style
        ========================================================= */
     body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image: url("assets/images/lens.jpg");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      background: url("assets/images/lens.jpg") center/cover no-repeat fixed;
       color: var(--text);
-      overflow: hidden;
       text-align: center;
+      overflow: hidden;
     }
 
     .error-wrapper {
@@ -51,13 +57,13 @@
       background: linear-gradient(135deg, var(--brand), var(--brand-2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin: 0;
+      margin: 0 0 10px;
+      letter-spacing: 2px;
     }
 
     .error-text {
       font-size: 1.2rem;
       color: var(--muted);
-      margin-top: -10px;
       margin-bottom: 28px;
     }
 
@@ -76,23 +82,29 @@
       box-shadow: 0 12px 32px rgba(137, 240, 194, 0.35);
     }
 
-    /* floating light orb (cinematic touch) */
+    /* Cinematic orb (floating studio light) */
     .orb {
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 600px;
+      height: 600px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(137,240,194,0.15), transparent 70%);
       top: -80px;
       left: -120px;
-      filter: blur(60px);
+      filter: blur(80px);
       z-index: 1;
-      animation: float 10s ease-in-out infinite alternate;
+      animation: float 12s ease-in-out infinite alternate;
     }
 
     @keyframes float {
       from { transform: translateY(0) rotate(0deg); }
-      to   { transform: translateY(30px) rotate(15deg); }
+      to   { transform: translateY(40px) rotate(10deg); }
+    }
+
+    /* Fade-up animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); filter: blur(4px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
     }
   </style>
 </head>
@@ -109,4 +121,4 @@
   <!-- JS -->
   <script src="assets/js/main.js"></script>
 </body>
-</html></html>
+</html>
