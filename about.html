@@ -3,52 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Forever Frames</title>
-  <meta name="description" content="Meet the photographer behind Forever Frames. Candid, cinematic, and color-true style, serving Ontario." />
-  <meta name="theme-color" content="#0b0b0f" />
+  <title>About Us — Forever Frames</title>
+  <meta name="description" content="Learn more about Vishw and Manav — the creative minds behind Forever Frames, crafting timeless visuals through passion, precision, and storytelling." />
 
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="About — Forever Frames" />
-  <meta property="og:description" content="Meet the photographer behind Forever Frames. Candid, cinematic, and color-true style, serving Ontario." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Forever Frames" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64x64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/favicon-180x180.png">
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/css/style.css" as="style">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 </head>
-<body>
-  <div id="site-header"></div>
 
-  
-<section class="page-hero small">
-  <div class="container">
-    <h1>About</h1>
-    <p>Hi! I’m Vish — I freeze moments you never want to forget.</p>
-  </div>
-</section>
+<body class="about-page">
+  <!-- ===================== NAV ===================== -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="logo" href="index.html" aria-label="Forever Frames home" style="display:flex;align-items:center;">
+        <img src="assets/Forever-Frames.png" alt="Forever Frames" class="logo-full">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Toggle menu">☰</button>
+      <nav id="nav" class="nav" role="navigation">
+        <a href="portfolio.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="about.html" class="active">About</a>
+        <a href="testimonials.html">Testimonials</a>
+        <a href="contact.html" class="btn ghost">Contact</a>
+        <a href="booking.html" class="btn primary btn-magnetic">
+          <span class="icon">📅</span> Book Now
+        </a>
+      </nav>
+    </div>
+  </header>
 
-<section class="container two-col">
-  <div>
-    <img class="rounded" src="https://images.unsplash.com/photo-1526040652367-ac003a0475fe?q=80&w=1200&auto=format&fit=crop" alt="Photographer at work" />
-  </div>
-  <div>
-    <h2>My Style</h2>
-    <p>Candid, cinematic, and color-true. I blend into your event to capture genuine stories.</p>
-    <h3>What to Expect</h3>
-    <ul class="check">
-      <li>Warm pre-shoot planning call</li>
-      <li>Clear direction, zero awkwardness</li>
-      <li>Proofs in 48–72 hours</li>
-      <li>Private gallery delivery</li>
-    </ul>
-  </div>
-</section>
+  <!-- ===================== HERO ===================== -->
+  <section class="about-hero hero glass">
+    <div class="container center">
+      <h1 class="reveal">Capturing Stories Beyond Frames</h1>
+      <p class="lead reveal">
+        We’re <strong>Vishw & Manav</strong> — storytellers who believe every frame has a heartbeat. 
+        With an eye for emotion, light, and timeless composition, we don’t just take photos — we craft memories that live forever.
+      </p>
+    </div>
+  </section>
 
+  <!-- ===================== FOUNDERS STORY ===================== -->
+  <section class="section">
+    <div class="container grid-2 reveal" style="align-items:center;gap:40px;">
+      <div>
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80" 
+             alt="Vishw & Manav" style="border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--border);">
+      </div>
+      <div>
+        <h2>Our Journey</h2>
+        <p class="lead">
+          What started as two friends with cameras has become an artistic pursuit — capturing genuine stories with cinematic precision.
+          From intimate weddings to dynamic portraits, we bring a perfect mix of creativity, technical mastery, and a deep sense of connection 
+          to every project we take on.
+        </p>
+        <p>
+          Based in Ontario, we’ve spent years refining our craft — from mastering lighting and composition to post-production storytelling.
+          Each photo we take is meant to *feel alive* — because we believe emotion should never fade, even when time does.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <div id="site-footer"></div>
+  <!-- ===================== OUR PHILOSOPHY ===================== -->
+  <section class="section glass">
+    <div class="container center">
+      <h2 class="reveal">Our Philosophy</h2>
+      <p class="lead reveal">What makes Forever Frames different from others? We go beyond photography — we build experiences that last.</p>
 
+      <div class="grid-3" style="margin-top:30px;">
+        <div class="feature reveal">
+          <h4>🎞 Storytelling First</h4>
+          <p>We believe every shot should narrate a story — raw, real, and emotionally resonant.</p>
+        </div>
+
+        <div class="feature reveal">
+          <h4>💡 Mastery of Light</h4>
+          <p>Our expertise in lighting and composition helps us create cinematic depth and natural emotion.</p>
+        </div>
+
+        <div class="feature reveal">
+          <h4>✨ Timeless Aesthetic</h4>
+          <p>Every edit is refined with purpose — not trends — ensuring your memories never go out of style.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA ===================== -->
+  <section class="section">
+    <div class="container cta glass reveal">
+      <div>
+        <h3>Let’s Create Timeless Stories Together</h3>
+        <p>Whether it’s your wedding, a portrait, or an event — we’ll capture it like no one else can.</p>
+      </div>
+      <a href="booking.html" class="btn primary btn-magnetic">📸 Book Your Session</a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Forever Frames</div>
+      <div style="display:flex;gap:14px">
+        <a href="mailto:hello@foreverframes.example">hello@foreverframes.example</a>
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
+
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
