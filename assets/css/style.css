@@ -1747,3 +1747,64 @@ body {
     padding-bottom: calc(env(safe-area-inset-bottom, 20px));
   }
 }
+/* =========================================================
+   UNIVERSAL RESPONSIVE HEIGHT + FOOTER VISIBILITY FIX
+   ========================================================= */
+
+/* Default desktop / laptop — use normal viewport units */
+html,
+body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer always sits at the bottom, but never floats above dock/taskbar */
+.site-footer {
+  margin-top: auto;
+  position: relative;
+  z-index: 5;
+  padding-bottom: 20px;
+}
+
+/* Scroll-to-Top placement */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  z-index: 1200;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* === Mobile / Tablet browsers with dynamic toolbars === */
+@media (max-width: 1024px) {
+  :root {
+    --vh: 100vh; /* will be updated via JS */
+  }
+
+  html,
+  body {
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: calc(var(--vh, 1vh) * 100);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-footer {
+    padding-bottom: env(safe-area-inset-bottom, 24px);
+  }
+
+  #scrollTopBtn {
+    bottom: calc(24px + env(safe-area-inset-bottom, 12px));
+  }
+}
+
+/* === iOS Safari fullscreen support === */
+@supports (-webkit-touch-callout: none) {
+  html,
+  body {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+  }
+}
