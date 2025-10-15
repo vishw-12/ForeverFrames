@@ -247,3 +247,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// Fix for mobile viewport height issues (header/footer visibility)
+function setVhUnit() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+window.addEventListener('resize', setVhUnit);
+window.addEventListener('orientationchange', setVhUnit);
+setVhUnit();
