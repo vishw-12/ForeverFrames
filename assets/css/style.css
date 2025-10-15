@@ -789,3 +789,100 @@ body.portfolio .site-footer { margin-top:auto; }
     min-height:-webkit-fill-available;
   }
 }
+/* ---------------------------------------------------------
+   REVIEW & CONTACT FORMS — RESTORED VISUAL STYLE
+   --------------------------------------------------------- */
+
+.review-section,
+.contact-section {
+  padding: 3rem 1rem;
+  border-radius: 20px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.review-form,
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.review-form .form-group,
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.review-form label,
+.contact-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.review-form input,
+.review-form textarea,
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.review-form input:focus,
+.review-form textarea:focus,
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Star Rating */
+.star-input {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 1rem;
+}
+
+.star-input span {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+.star-input span.active {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.6);
+}
+.star-input span:hover {
+  transform: scale(1.2);
+}
+
+/* Submit Buttons (Review / Contact) */
+.review-form button,
+.contact-form button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 12px 28px;
+  font-weight: 600;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: #0b0b0f;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  transition: all 0.25s ease;
+}
+
+.review-form button:hover,
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(137,240,194,0.4);
+}
