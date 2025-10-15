@@ -3,35 +3,110 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found — Forever Frames</title>
-  <meta name="description" content="Sorry, the page you’re looking for does not exist." />
-  <meta name="theme-color" content="#0b0b0f" />
+  <title>404 — Forever Frames</title>
+  <meta name="description" content="Page not found — but beauty still lives in every frame.">
 
-  <!-- SEO / Open Graph -->
-  <meta property="og:title" content="Page Not Found — Forever Frames" />
-  <meta property="og:description" content="Sorry, the page you’re looking for does not exist." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1499084732479-de2c02d45fc4?q=80&w=1200&auto=format&fit=crop" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Forever Frames" />
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icons/favicon-48x48.png">
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="preload" href="assets/css/style.css" as="style">
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <style>
+    /* =========================================================
+       404 PAGE — Cinematic Minimalism
+       ========================================================= */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: url("assets/images/lens.jpg") center/cover no-repeat fixed;
+      color: var(--text);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .error-wrapper {
+      position: relative;
+      z-index: 2;
+      padding: 60px 40px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      animation: fadeUp 1s ease forwards;
+      max-width: 480px;
+    }
+
+    .error-code {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(72px, 12vw, 120px);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+    }
+
+    .error-text {
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin-top: -10px;
+      margin-bottom: 28px;
+    }
+
+    .btn.primary {
+      font-size: 1rem;
+      padding: 12px 24px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #0b0b0f;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 32px rgba(137, 240, 194, 0.35);
+    }
+
+    /* floating light orb (cinematic touch) */
+    .orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(137,240,194,0.15), transparent 70%);
+      top: -80px;
+      left: -120px;
+      filter: blur(60px);
+      z-index: 1;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0) rotate(0deg); }
+      to   { transform: translateY(30px) rotate(15deg); }
+    }
+  </style>
 </head>
-<body>
-  <div id="site-header"></div>
 
-  
-<section class="page-hero small">
-  <div class="container">
-    <h1>404</h1>
-    <p>Oops — that page doesn’t exist. Try the menu above.</p>
+<body class="error-page">
+  <div class="orb"></div>
+
+  <div class="error-wrapper reveal">
+    <h1 class="error-code">404</h1>
+    <p class="error-text">Seems this frame doesn’t exist yet.</p>
+    <a href="index.html" class="btn primary btn-magnetic">Return Home</a>
   </div>
-</section>
 
-
-  <div id="site-footer"></div>
-
+  <!-- JS -->
   <script src="assets/js/main.js"></script>
 </body>
-</html>
+</html></html>
