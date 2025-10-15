@@ -275,3 +275,6 @@ window.addEventListener("load", () => {
   const heroVisual = document.querySelector(".hero-visual");
   setTimeout(() => heroVisual.classList.add("loaded"), 1800);
 });
+window.addEventListener("load", () => {
+  setTimeout(() => document.querySelector(".hero-visual").classList.add("loaded"), 1800);
+});
