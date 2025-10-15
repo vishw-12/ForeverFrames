@@ -1090,3 +1090,7 @@ body.portfolio .site-footer { margin-top:auto; }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
+.hero-visual {
+  position: relative;
+  top: 80px; /* shifts entire photo stack downward */
+}
