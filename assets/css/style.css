@@ -1547,3 +1547,39 @@ body.portfolio .site-footer {
     min-height: -webkit-fill-available;
   }
 }
+/* =========================
+   ABOUT PAGE IMAGE FIX
+   ========================= */
+.about-page .section img {
+  width: 100%;
+  max-width: 600px;       /* keeps image contained */
+  height: auto;           /* prevents vertical stretch */
+  aspect-ratio: 4 / 3;    /* ensures nice proportional framing */
+  object-fit: cover;      /* trims edges while keeping center */
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  display: block;
+  margin: 0 auto;         /* centers inside grid on smaller screens */
+}
+
+/* Ensure grid stays balanced */
+.about-page .grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* On tablets and phones, stack naturally */
+@media (max-width: 960px) {
+  .about-page .grid-2 {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-page .section img {
+    max-width: 90%;
+    aspect-ratio: auto; /* let mobile handle responsive resize naturally */
+  }
+}
