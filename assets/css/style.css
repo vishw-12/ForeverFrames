@@ -187,12 +187,31 @@ box-shadow: 0 4px 12px rgba(0,0,0,.25);
 .nav .btn { margin-left: 6px; }
 
 /* Mobile menu button */
-.nav-toggle{
-display:none; background:transparent;
-border:1px solid var(--border);
-border-radius:12px; padding:6px 10px; color:var(--text);
+/* ===== Enhanced Nav Toggle (More Visible + Clickable) ===== */
+.nav-toggle {
+  display: none; /* still hidden on desktop */
+  background: rgba(255, 255, 255, 0.08); /* subtle glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 10px 16px; /* increased tap area */
+  color: var(--text);
+  font-size: 1.8rem; /* makes the 3-line icon bigger */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.nav-toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
+/* Show it on tablets and phones */
+@media (max-width: 960px) {
+  .nav-toggle {
+    display: block;
+  }
+}
 /* =========================
   BUTTONS — Fixed + Glass Effect
   ========================= */
