@@ -888,9 +888,10 @@ body.portfolio .site-footer { margin-top:auto; }
 }
 
 /* =========================================================
-   HERO VISUAL — LARGER, NON-OVERLAPPING, CLEAN STACK
+   HERO VISUAL — CINEMATIC + RESPONSIVE (FINAL VERSION)
    ========================================================= */
 
+/* --- Base Grid Layout --- */
 .hero-grid {
   display: flex;
   align-items: center;
@@ -899,94 +900,13 @@ body.portfolio .site-footer { margin-top:auto; }
   gap: 40px;
 }
 
-/* Text section */
+/* Text block */
 .hero-text {
   flex: 1;
   max-width: 50%;
 }
 
-/* Visual section */
-.hero-visual {
-  flex: 1;
-  max-width: 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px; /* spacing between images */
-}
-
-/* Shared photo styling */
-.card-photo {
-  width: 100%;
-  max-width: 320px; /* controls image size */
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-.card-photo:nth-child(1) { animation-delay: 0.1s; }
-.card-photo:nth-child(2) { animation-delay: 0.3s; }
-.card-photo:nth-child(3) { animation-delay: 0.5s; }
-
-.card-photo img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  border-radius: 20px;
-}
-
-/* Fade and lift animation */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hover lift */
-.card-photo:hover {
-  transform: translateY(-8px);
-  transition: transform 0.3s ease;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
-}
-
-/* =========================================================
-   RESPONSIVE STYLING — STACK BELOW TEXT
-   ========================================================= */
-@media (max-width: 1024px) {
-  .hero-grid {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-text {
-    max-width: 90%;
-  }
-
-  .hero-visual {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-    gap: 24px;
-  }
-
-  .card-photo {
-    max-width: 80%;
-  }
-}
-
-@media (max-width: 600px) {
-  .card-photo {
-    max-width: 90%;
-  }
-}
-/* =========================
-   HERO VISUAL — CINEMATIC OVERLAP (FINAL)
-   ========================= */
+/* Visual block (photos) */
 .hero-visual {
   position: relative;
   flex: 1;
@@ -995,19 +915,15 @@ body.portfolio .site-footer { margin-top:auto; }
   justify-content: center;
   max-width: 45%;
   padding-right: 5%;
-}
-/* Keep photo stack inside the glass morphism section */
-.hero {
-  position: relative;
-  overflow: hidden; /* hides any spill below */
-  padding-bottom: 160px; /* adds extra breathing room at the bottom of hero */
+  top: 60px; /* just below the nav */
+  z-index: 2;
 }
 
-.hero-visual {
-  margin-top: 0;       /* remove previous downward offset */
-  position: relative;  /* keeps stacking inside hero */
-  top: 40px;           /* move photos a bit lower from nav, but within hero */
-  z-index: 2;          /* keep above background */
+/* Make sure it stays inside hero */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 140px;
 }
 
 .hero::before {
@@ -1016,120 +932,60 @@ body.portfolio .site-footer { margin-top:auto; }
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 150px; /* fade padding */
+  height: 150px;
   background: linear-gradient(to bottom, rgba(17, 25, 40, 0) 0%, rgba(17, 25, 40, 0.8) 100%);
   z-index: 1;
 }
+
+/* --- Photo Styling --- */
 .card-photo {
   position: absolute;
-  width: 330px;
-  height: auto;
+  width: 320px;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
   opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.8s ease-out forwards, floatAnim 8s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Image inside */
 .card-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   border-radius: 20px;
 }
 
-/* Position each card so they overlap but stay visible */
-.card-photo.p1 {
-  top: -100px;
-  left: 40px;
-  z-index: 1;
-  animation-delay: 0.1s;
-}
+/* Stacked cinematic positions */
+.card-photo.p1 { top: -80px; left: 20px; z-index: 1; animation-delay: 0.1s; }
+.card-photo.p2 { top: 60px; left: 120px; z-index: 2; animation-delay: 0.3s; }
+.card-photo.p3 { top: 200px; left: 220px; z-index: 3; animation-delay: 0.5s; }
 
-.card-photo.p2 {
-  top: 40px;
-  left: 100px;
-  z-index: 2;
-  animation-delay: 0.3s;
-}
-
-.card-photo.p3 {
-  top: 160px;
-  left: 180px;
-  z-index: 3;
-  animation-delay: 0.5s;
-}
-
-/* Hover lift effect */
+/* Hover effect */
 .card-photo:hover {
   transform: translateY(-8px);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
 }
 
-/* Fade animation */
+/* Animations */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================
-   RESPONSIVE BEHAVIOR
-   ========================= */
-@media (max-width: 1024px) {
-  .hero-visual {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding: 0;
-  }
-
-  .card-photo {
-    position: relative;
-    width: 80%;
-    left: 0;
-    top: 0;
-    opacity: 1;
-    transform: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    animation: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .card-photo {
-    width: 90%;
-  }
-}
-.card-photo {
-  animation: fadeInUp 0.8s ease-out forwards, floatAnim 8s ease-in-out infinite;
 }
 
 @keyframes floatAnim {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
-.hero-visual {
-  position: relative;
-  top: 80px; /* shifts entire photo stack downward */
-}
-/* =========================
-   RESPONSIVE FIXES FOR HERO VISUAL
-   ========================= */
 
-/* --- Desktop (default) --- */
-/* Your existing cinematic layout already looks great here */
+/* =========================================================
+   RESPONSIVE REFINEMENTS
+   ========================================================= */
 
-/* --- TABLET / MEDIUM SCREENS (768px to 1200px) --- */
+/* --- Tablet: side-by-side grid layout --- */
 @media (min-width: 768px) and (max-width: 1200px) {
-  .hero {
-    padding-bottom: 100px;
-  }
-
   .hero-grid {
     flex-direction: column;
     align-items: center;
@@ -1138,39 +994,66 @@ body.portfolio .site-footer { margin-top:auto; }
   }
 
   .hero-visual {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* 3 cards side by side */
-    gap: 1.5rem;
-    justify-items: center;
-    margin-top: 40px;
     position: relative;
+    top: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    justify-items: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 900px;
+    padding: 0;
+    margin-top: 40px;
   }
 
   .card-photo {
     position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-    opacity: 1 !important;
     width: 90%;
-    max-width: 280px;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 260px;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   }
 
   .card-photo:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* --- Mobile: clean stacked cards --- */
+@media (max-width: 767px) {
+  .hero-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
   }
 
-  .card-photo img {
+  .hero-text {
+    max-width: 90%;
+  }
+
+  .hero-visual {
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    max-width: 480px;
+    margin-top: 40px;
+    padding: 0;
+  }
+
+  .card-photo {
+    position: relative;
+    width: 90%;
+    max-width: 320px;
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   }
 }
