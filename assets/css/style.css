@@ -1307,3 +1307,13 @@ body.portfolio .site-footer { margin-top:auto; }
     max-width: 320px !important;
   }
 }
+/* ==============================================
+   FIX: Reduce excessive hero bottom spacing
+   ============================================== */
+.hero {
+  padding-bottom: 80px !important; /* shrink from 220–260px to 80px */
+}
+
+.hero::before {
+  height: 80px !important; /* reduce the fade overlay height */
+}
