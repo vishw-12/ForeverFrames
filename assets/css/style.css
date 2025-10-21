@@ -1124,11 +1124,10 @@ body.portfolio .site-footer { margin-top:auto; }
 /* --- Desktop (default) --- */
 /* Your existing cinematic layout already looks great here */
 
-/* --- Tablets and smaller (stack vertically) --- */
-@media (max-width: 1024px) {
+/* --- TABLET / MEDIUM SCREENS (768px to 1200px) --- */
+@media (min-width: 768px) and (max-width: 1200px) {
   .hero {
-    overflow: visible; /* allow cards to expand naturally */
-    padding-bottom: 80px; /* prevent clipping at bottom */
+    padding-bottom: 100px;
   }
 
   .hero-grid {
@@ -1138,55 +1137,40 @@ body.portfolio .site-footer { margin-top:auto; }
     gap: 2rem;
   }
 
-  .hero-text {
-    max-width: 90%;
-  }
-
   .hero-visual {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 cards side by side */
+    gap: 1.5rem;
+    justify-items: center;
+    margin-top: 40px;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-    top: 0;
-    left: 0;
-    padding: 0;
+    width: 100%;
+    max-width: 1000px;
   }
 
   .card-photo {
     position: relative !important;
-    width: 80%;
-    max-width: 400px;
     top: 0 !important;
     left: 0 !important;
-    margin-bottom: 24px;
-    z-index: 1;
     transform: none !important;
     opacity: 1 !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 280px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-photo:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.35);
   }
 
   .card-photo img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: cover;
-  }
-}
-
-/* --- Phones (smaller than 600px) --- */
-@media (max-width: 600px) {
-  .hero-visual {
-    gap: 1rem;
-  }
-
-  .card-photo {
-    width: 90%;
-    max-width: 320px;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-    line-height: 1.2;
+    display: block;
   }
 }
