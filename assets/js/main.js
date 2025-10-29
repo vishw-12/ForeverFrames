@@ -278,3 +278,23 @@ window.addEventListener("load", () => {
 window.addEventListener("load", () => {
   setTimeout(() => document.querySelector(".hero-visual").classList.add("loaded"), 1800);
 });
+<script>
+document.querySelectorAll(".card-photo").forEach(card => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const tiltX = ((y / rect.height) - 0.5) * -15; // up/down tilt
+    const tiltY = ((x / rect.width) - 0.5) * 15;  // left/right tilt
+
+    card.style.setProperty("--tiltX", tiltX + "deg");
+    card.style.setProperty("--tiltY", tiltY + "deg");
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.setProperty("--tiltX", "0deg");
+    card.style.setProperty("--tiltY", "0deg");
+  });
+});
+</script>
