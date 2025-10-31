@@ -278,3 +278,8 @@ window.addEventListener("load", () => {
 window.addEventListener("load", () => {
   setTimeout(() => document.querySelector(".hero-visual").classList.add("loaded"), 1800);
 });
+// Enable smooth parallax scroll effect
+window.addEventListener('scroll', () => {
+  document.body.classList.add('parallax-active');
+  document.body.style.setProperty('--scrollY', window.scrollY);
+});
