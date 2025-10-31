@@ -1045,3 +1045,66 @@ body.portfolio .site-footer { margin-top:auto; }
     margin: 0 auto;
   }
 }
+/* ==========================================
+   ✅ TABLET FIX — Center Visual + Buttons
+   ========================================== */
+@media (min-width: 768px) and (max-width: 1200px) {
+
+  /* Center heading + buttons */
+  .hero-text {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  .hero-text .cta-buttons,
+  .hero-text .cta-buttons .btn-wrapper {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  /* Photo Section — Proper center alignment */
+  .hero-visual {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 1.4rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 40px auto 0 auto !important;
+    padding: 0 2rem !important; /* ✅ Equal spacing left/right */
+  }
+
+  .card-photo {
+    position: relative !important;
+    width: clamp(200px, 24vw, 260px) !important; /* ✅ Slightly smaller */
+    height: auto;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  }
+
+  .hero {
+    padding-bottom: 110px !important;
+  }
+}
+
+/* ==========================================
+   ✅ MOBILE SMALL FIX — Ensure full centering
+   ========================================== */
+@media (max-width: 767px) {
+  .hero-text {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-text .cta-buttons,
+  .hero-text .cta-buttons .btn-wrapper {
+    justify-content: center !important;
+  }
+}
