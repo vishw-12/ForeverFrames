@@ -732,379 +732,369 @@ body.portfolio .site-footer { margin-top:auto; }
   box-shadow:0 8px 24px rgba(137,240,194,0.4);
 }
 
-/* ---------------------------------------------------------
-   17. RESPONSIVE ADJUSTMENTS
-   --------------------------------------------------------- */
-@media (max-width:1024px){
-  .hero-grid { grid-template-columns:1fr; }
-  .hero h1 { font-size:clamp(32px,5vw,54px); }
-  .hero p.lead { font-size:1rem; }
-  .logo-full { height:120px; }
-  .package { padding:20px; }
+/* =========================================================
+   RESPONSIVE & LAYOUT SYSTEM — FLUID + ADAPTIVE
+   Inspired by Apple.com motion and dynamic viewport design
+   ========================================================= */
+
+/* 🌍 Base fluid grid scaling */
+html {
+  font-size: clamp(14px, 0.9vw + 10px, 18px);
 }
-@media (max-width:768px){
-  .nav{display:none;}
-  .nav.show{display:flex;flex-direction:column;align-items:flex-start;}
-  .nav-toggle{display:block;}
-  .hero{padding:60px 0 40px;text-align:center;}
-  .hero-grid{grid-template-columns:1fr;}
-  .hero h1{font-size:clamp(28px,6vw,42px);}
-  .hero p.lead{font-size:.95rem;}
-  .card-photo{position:relative;width:100%;}
-  .features,.section,.testimonials-grid{padding:2rem 1rem;}
-  .testimonial-card{padding:1.2rem;}
-  .package{width:100%;}
-}
-@media (max-width:480px){
-  .hero{padding:50px 0 30px;}
-  .hero h1{font-size:clamp(24px,8vw,36px);line-height:1.1;}
-  .hero p.lead{font-size:.9rem;line-height:1.5;}
-  .btn{padding:10px 18px;font-size:14px;}
-  .testimonial-card{font-size:.9rem;}
-  .cta{flex-direction:column;align-items:flex-start;}
+
+/* Container scaling for big screens */
+.container {
+  max-width: min(90vw, 1200px);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
 }
 
 /* ---------------------------------------------------------
-   18. VIEWPORT & FOOTER VISIBILITY FIX
+   Universal image behavior — zero jump when loading
    --------------------------------------------------------- */
-.site-footer {
-  margin-top:auto;
-  position:relative;
-  z-index:5;
-  padding-bottom:20px;
-}
-@media (max-width:1024px){
-  html,body{
-    height:calc(var(--vh,1vh)*100);
-    min-height:calc(var(--vh,1vh)*100);
-    -webkit-overflow-scrolling:touch;
-  }
-  .site-footer{padding-bottom:env(safe-area-inset-bottom,24px);}
-  #scrollTopBtn{bottom:calc(24px + env(safe-area-inset-bottom,12px));}
-}
-/* iOS Safari fullscreen support */
-@supports (-webkit-touch-callout:none){
-  html,body{
-    height:-webkit-fill-available;
-    min-height:-webkit-fill-available;
-  }
-}
-/* ---------------------------------------------------------
-   REVIEW & CONTACT FORMS — RESTORED VISUAL STYLE
-   --------------------------------------------------------- */
-
-.review-section,
-.contact-section {
-  padding: 3rem 1rem;
-  border-radius: 20px;
-  margin-top: 3rem;
-  text-align: center;
-}
-
-.review-form,
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-.review-form .form-group,
-.contact-form .form-group {
-  margin-bottom: 1.5rem;
-}
-
-.review-form label,
-.contact-form label {
+img {
   display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-  color: #fff;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease-out, filter 0.4s ease;
+}
+img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
 }
 
-.review-form input,
-.review-form textarea,
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-  font-size: 1rem;
-  outline: none;
+/* ---------------------------------------------------------
+   GRID LOGIC — dynamic reflow based on viewport width
+   --------------------------------------------------------- */
+.grid-2,
+.grid-3 {
+  display: grid;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  align-items: center;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: stretch;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE HERO BEHAVIOR
+   --------------------------------------------------------- */
+.hero-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 2vw, 2rem);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero-visual {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  flex-wrap: wrap;
+  padding-top: 1rem;
+}
+
+.card-photo {
+  flex: 1 1 clamp(200px, 30%, 260px);
+  aspect-ratio: 4/5;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,.35);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s ease;
+}
+.card-photo:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 80px rgba(0,0,0,.65);
+}
+
+/* ---------------------------------------------------------
+   CTA + Footer auto-balance
+   --------------------------------------------------------- */
+.cta {
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.cta a {
+  flex-shrink: 0;
+}
+
+/* Footer scaling and safety */
+.site-footer {
+  margin-top: auto;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: rgba(16,16,23,0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.site-footer div {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/* ---------------------------------------------------------
+   NAV + SCROLL BUTTON RESPONSIVE ADJUSTMENT
+   --------------------------------------------------------- */
+.nav-toggle {
+  font-size: 1.4rem;
+  padding: 10px 14px;
+  border-radius: 12px;
   transition: all 0.3s ease;
 }
-
-.review-form input:focus,
-.review-form textarea:focus,
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: rgba(255,255,255,0.4);
-  background: rgba(255,255,255,0.1);
+.nav-toggle:hover {
+  transform: scale(1.05);
+  background: rgba(255,255,255,0.2);
 }
 
-/* Star Rating */
-.star-input {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 1rem;
+/* Scroll Button smooth fade in/out */
+#scrollTopBtn {
+  bottom: clamp(24px, 3vw, 40px);
+  right: clamp(18px, 2vw, 28px);
+  opacity: 0;
+  pointer-events: none;
+}
+#scrollTopBtn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-.star-input span {
-  font-size: 1.8rem;
-  cursor: pointer;
-  color: #fff;
-  transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s ease;
-}
-.star-input span.active {
-  color: #ffd700;
-  text-shadow: 0 0 10px rgba(255,215,0,0.6);
-}
-.star-input span:hover {
-  transform: scale(1.2);
-}
-
-/* Submit Buttons (Review / Contact) */
-.review-form button,
-.contact-form button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 12px 28px;
-  font-weight: 600;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--brand), var(--brand-2));
-  color: #0b0b0f;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-  transition: all 0.25s ease;
-}
-
-.review-form button:hover,
-.contact-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(137,240,194,0.4);
-}
-
-/* ================================
-   DESKTOP (>=1201px)
-   Cinematic diagonal overlap — POLISHED
-   ================================ */
-@media (min-width: 1201px) {
-
-  :root {
-    --card-w: clamp(180px, 14vw, 200px);
-    --shift-x: 110px; /* ✅ Horizontal stagger */
-    --shift-y: 120px; /* ✅ Vertical stagger */
-  }
-
-  .hero {
-    position: relative;
-    overflow: hidden;
-    padding-bottom: 90px;
-  }
-
-  .hero-visual {
-    position: relative;
-    top: 32px;
-    flex: 1;
-    max-width: 45%;
-    padding-right: 4%;
-    isolation: isolate;
-  }
-
-  .card-photo {
-    position: absolute;
-    width: var(--card-w);
-    aspect-ratio: 4/5;
-    border-radius: 22px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.1);
-    box-shadow: 0 25px 65px rgba(0,0,0,.55);
-    transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s ease;
-  }
-
-  .card-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* ✅ Diagonal cascade positions — clean visibility */
-  .card-photo.p1 {
-    top: -20px;
-    left: 0;
-    z-index: 1;
-  }
-
-  .card-photo.p2 {
-    top: var(--shift-y);
-    left: var(--shift-x);
-    z-index: 2;
-  }
-
-  .card-photo.p3 {
-    top: calc(var(--shift-y) * 2);
-    left: calc(var(--shift-x) * 2);
-    z-index: 3;
-  }
-
-  /* ✅ Desktop hover lift */
-  @media (hover: hover) and (pointer: fine) {
-    .card-photo:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 40px 80px rgba(0,0,0,.65);
-    }
-  }
-
-  /* ✅ Gentle floating effect */
-  @media (prefers-reduced-motion: no-preference) {
-    .card-photo {
-      animation: ff-float 8s ease-in-out infinite;
-    }
-    @keyframes ff-float {
-      0%,100% { transform: translateY(0); }
-      50%     { transform: translateY(-8px); }
-    }
-  }
-
-  .hero::before {
-    content:"";
-    position:absolute; inset-inline:0; bottom:0; height:80px;
-    background:linear-gradient(to bottom, rgba(17,25,40,0) 0%, rgba(17,25,40,.85) 100%);
+/* Auto-hide scroll-to-top near footer */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes scrollFade {
+    0%, 80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(10px); }
   }
 }
-/* ================================
-   TABLET (<=1200px)
-   Clean 3-column grid under text
-   ================================ */
+
+/* ---------------------------------------------------------
+   BREAKPOINTS — tablet-first smooth scaling
+   --------------------------------------------------------- */
 @media (max-width: 1200px) {
-
-  .hero {
-    padding-bottom: 90px; /* preserve space */
-    overflow: visible;
-  }
-
   .hero-grid {
     flex-direction: column;
-    text-align: center;
     align-items: center;
-    gap: 2rem;
   }
-
-  .hero-visual {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ✅ side-by-side */
-    gap: 1rem;
-    width: 100%;
-    max-width: 900px;
-    margin-top: 20px;
-    padding: 0 1rem;
-  }
-
-  .card-photo {
-    position: relative !important;
-    width: 100% !important;
-    aspect-ratio: 4/5;
-    border-radius: 18px;
-    transform: none !important;
-    animation: none !important;
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
-  }
-
-  .card-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Remove overlap positioning */
-  .card-photo.p1,
-  .card-photo.p2,
-  .card-photo.p3 {
-    top: 0 !important;
-    left: 0 !important;
-  }
+  .hero-text { text-align: center; }
+  .nav { gap: 0.5rem; }
 }
 
-/* ================================
-   MOBILE (<=600px)
-   Stack 1x3, center & comfy
-   ================================ */
+@media (max-width: 960px) {
+  .hero h1 { font-size: clamp(28px, 6vw, 44px); }
+  .hero p.lead { font-size: 1rem; }
+  .cta { flex-direction: column; }
+}
+
 @media (max-width: 600px) {
-
   .hero-visual {
-    grid-template-columns: 1fr; /* ✅ 1 per row stacked */
-    gap: 1.25rem;
+    flex-direction: column;
+    align-items: center;
   }
-
   .card-photo {
     max-width: 320px;
-    margin: 0 auto;
-  }
-}
-/* ==========================================
-   ✅ TABLET FIX — Center Visual + Buttons
-   ========================================== */
-@media (min-width: 768px) and (max-width: 1200px) {
-
-  /* Center heading + buttons */
-  .hero-text {
-    text-align: center;
-    margin: 0 auto;
-    max-width: 90%;
-  }
-
-  .hero-text .cta-buttons,
-  .hero-text .cta-buttons .btn-wrapper {
-    display: flex;
-    justify-content: center !important;
-    align-items: center;
-    gap: 1rem;
     width: 100%;
   }
+  .nav a { font-size: 0.95rem; padding: 10px 12px; }
+}
+/* =========================================================
+   PHASE 2 — MOTION & PERFORMANCE OPTIMIZATION
+   Smooth parallax • Layer isolation • GPU acceleration
+   ========================================================= */
 
-  /* Photo Section — Proper center alignment */
-  .hero-visual {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    gap: 1.4rem;
-    width: 100%;
-    max-width: 900px;
-    margin: 40px auto 0 auto !important;
-    padding: 0 2rem !important; /* ✅ Equal spacing left/right */
-  }
+/* ---------------------------------------------------------
+   1. GLOBAL PERFORMANCE TUNING
+   --------------------------------------------------------- */
+* {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
 
-  .card-photo {
-    position: relative !important;
-    width: clamp(200px, 24vw, 260px) !important; /* ✅ Slightly smaller */
-    height: auto;
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,.08);
-    box-shadow: 0 10px 25px rgba(0,0,0,.35);
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* prevent anchor jumps behind header */
+}
 
-  .hero {
-    padding-bottom: 110px !important;
+/* Fade-in for page sections */
+.section,
+.hero,
+.cta,
+.site-footer {
+  animation: fadeAppear 1.2s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes fadeAppear {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ---------------------------------------------------------
+   2. HERO PARALLAX DEPTH (APPLE-STYLE)
+   --------------------------------------------------------- */
+.hero {
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.card-photo {
+  transform-origin: center center;
+  transition: transform 0.6s cubic-bezier(.22,1,.36,1),
+              box-shadow 0.6s ease;
+}
+
+/* Floating motion */
+@media (prefers-reduced-motion: no-preference) {
+  .card-photo:nth-child(1) { animation: floatY 9s ease-in-out infinite; }
+  .card-photo:nth-child(2) { animation: floatY 10s ease-in-out infinite 1.2s; }
+  .card-photo:nth-child(3) { animation: floatY 11s ease-in-out infinite 2.4s; }
+
+  @keyframes floatY {
+    0%,100% { transform: translateY(0) rotateZ(0deg); }
+    50%     { transform: translateY(-10px) rotateZ(0.3deg); }
   }
 }
 
-/* ==========================================
-   ✅ MOBILE SMALL FIX — Ensure full centering
-   ========================================== */
+/* Subtle parallax on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  body.parallax-active .card-photo {
+    transform: translateY(calc(var(--scrollY, 0) * 0.15px));
+  }
+}
+
+/* ---------------------------------------------------------
+   3. GLASS LAYER OPTIMIZATION
+   --------------------------------------------------------- */
+.glass {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: backdrop-filter 0.6s ease, background 0.6s ease;
+}
+
+/* Reduce GPU overdraw on mobile */
 @media (max-width: 767px) {
-  .hero-text {
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
+  .glass {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
+}
 
-  .hero-text .cta-buttons,
-  .hero-text .cta-buttons .btn-wrapper {
-    justify-content: center !important;
+/* ---------------------------------------------------------
+   4. SCROLL REVEAL — FADE UP
+   --------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.show {
+  opacity: 1;
+  transform: none;
+}
+
+/* Optional stagger effect */
+.reveal[data-delay="1"] { transition-delay: 0.15s; }
+.reveal[data-delay="2"] { transition-delay: 0.3s; }
+.reveal[data-delay="3"] { transition-delay: 0.45s; }
+
+/* ---------------------------------------------------------
+   5. SMOOTH NAVBAR SCROLL STATE
+   --------------------------------------------------------- */
+.site-header {
+  transition: backdrop-filter 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+.site-header.scrolled {
+  background: rgba(16,16,23,0.55);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+/* ---------------------------------------------------------
+   6. INTERACTIVE MICRO-ANIMATIONS
+   --------------------------------------------------------- */
+.btn,
+.nav a {
+  transition: all 0.35s cubic-bezier(.22,1,.36,1);
+}
+.btn:hover,
+.nav a:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.1);
+}
+
+/* Magnetic button pulse */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+}
+.btn-magnetic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.2), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.btn-magnetic:hover::after { opacity: 1; }
+
+/* ---------------------------------------------------------
+   7. PORTFOLIO GRID — HORIZONTAL FLOW + TRANSITION
+   --------------------------------------------------------- */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  align-items: start;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.portfolio-grid .card img {
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.portfolio-grid .card:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.08);
+}
+
+/* ---------------------------------------------------------
+   8. LIGHT MODE TOGGLE READY (future-proof)
+   --------------------------------------------------------- */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f7fa;
+    --text: #0a0a0a;
+    --panel: #ffffffb3;
+    --border: #d9d9e3;
+  }
+}
+
+/* ---------------------------------------------------------
+   9. MOTION FALLBACKS
+   --------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
   }
 }
