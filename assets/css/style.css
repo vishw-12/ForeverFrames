@@ -894,7 +894,7 @@ body.portfolio .site-footer { margin-top:auto; }
 @media (min-width: 1201px) {
 
   :root {
-    --card-w: clamp(200px, 15vw, 250px);
+    --card-w: clamp(180px, 14vw, 200px);
     --shift-x: 110px; /* ✅ Horizontal stagger */
     --shift-y: 120px; /* ✅ Vertical stagger */
   }
