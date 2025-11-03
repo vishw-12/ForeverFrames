@@ -352,3 +352,10 @@ document.querySelectorAll('a[href]').forEach(link => {
     setTimeout(() => (window.location = url), 300);
   });
 });
+// Optional: gentle inertia scroll (desktop only)
+if (!/Mobi|Android/i.test(navigator.userAgent)) {
+  document.documentElement.style.scrollBehavior = 'smooth';
+  document.addEventListener('wheel', e => {
+    if (e.deltaY % 1 !== 0) e.preventDefault();
+  }, { passive: false });
+}
