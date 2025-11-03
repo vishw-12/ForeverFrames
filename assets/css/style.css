@@ -1493,3 +1493,48 @@ body.page-exit {
     animation: none !important;
   }
 }
+/* =========================================================
+   PHASE 7 — HERO SPACING FIX (Phones ↔ Tablets)
+   Smooth spacing between hero CTA buttons and photo cards
+   ========================================================= */
+
+/* Global baseline adjustment */
+.hero {
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Default photo container spacing */
+.hero-visual {
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+/* Tablet layout (601 px – 1200 px) */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .hero {
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-visual {
+    margin-top: 1.5rem;
+    margin-bottom: 1.75rem;
+  }
+}
+
+/* Mobile layout (≤ 600 px) */
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .hero-visual {
+    margin-top: 1rem;          /* tighter top spacing */
+    margin-bottom: 1.25rem;    /* smaller gap to next section */
+  }
+
+  /* Tighten buttons block too */
+  .hero .btn,
+  .hero .btn.primary {
+    margin-bottom: 0.5rem;
+  }
+}
