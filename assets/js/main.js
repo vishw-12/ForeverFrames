@@ -341,3 +341,14 @@ const prime = () => {
 ['mousemove','touchstart','scroll','keydown'].forEach(ev =>
   window.addEventListener(ev, prime, { once:true, passive:true })
 );
+// Page transition fade-out before leaving
+document.querySelectorAll('a[href]').forEach(link => {
+  const url = link.getAttribute('href');
+  if (!url || url.startsWith('#') || url.includes('mailto:')) return;
+
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.classList.add('page-exit');
+    setTimeout(() => (window.location = url), 300);
+  });
+});
