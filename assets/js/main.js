@@ -283,3 +283,61 @@ window.addEventListener('scroll', () => {
   document.body.classList.add('parallax-active');
   document.body.style.setProperty('--scrollY', window.scrollY);
 });
+/* =========================================================
+   PHASE 3 — SMART LAZY LOADER + REVEAL
+   ========================================================= */
+
+// 1) Blur-up lazy images
+const lazyImgs = document.querySelectorAll('img[data-src]');
+const imgIO = 'IntersectionObserver' in window ? new IntersectionObserver(
+  entries => entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const img = entry.target;
+    // Swap to real source
+    img.src = img.dataset.src;
+    img.removeAttribute('data-src');
+    // When high-res finishes, remove blur
+    img.addEventListener('load', () => img.classList.add('img-ready'), { once:true });
+    imgIO.unobserve(img);
+  }),
+  { rootMargin: '400px 0px 400px 0px', threshold: 0.01 }
+) : null;
+
+lazyImgs.forEach(img => {
+  img.classList.add('img-blur');        // start blurred
+  if (imgIO) imgIO.observe(img);
+  else { img.src = img.dataset.src; }   // fallback
+});
+
+// 2) Scroll reveal for .reveal blocks
+const reveals = document.querySelectorAll('.reveal');
+const revIO = 'IntersectionObserver' in window ? new IntersectionObserver(
+  entries => entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('show');
+      revIO.unobserve(e.target);
+    }
+  }),
+  { rootMargin: '120px 0px', threshold: 0.01 }
+) : null;
+
+reveals.forEach(el => revIO ? revIO.observe(el) : el.classList.add('show'));
+
+// 3) Gentle lookahead prefetch (after first interaction)
+let primed = false;
+const prime = () => {
+  if (primed) return; primed = true;
+  document.querySelectorAll('link[rel="prefetch"], link[rel="preload"]').forEach(()=>{});
+  // Prefetch next few data-srcs to warm cache
+  const next = [...document.querySelectorAll('img[data-src]')].slice(0, 4);
+  next.forEach(img => {
+    const l = document.createElement('link');
+    l.rel = 'prefetch';
+    l.as  = 'image';
+    l.href = img.dataset.src;
+    document.head.appendChild(l);
+  });
+};
+['mousemove','touchstart','scroll','keydown'].forEach(ev =>
+  window.addEventListener(ev, prime, { once:true, passive:true })
+);
