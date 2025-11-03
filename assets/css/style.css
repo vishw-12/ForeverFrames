@@ -1538,3 +1538,39 @@ body.page-exit {
     margin-bottom: 0.5rem;
   }
 }
+/* =========================================================
+   HERO SPACING FIX — Reduce vertical gap between text/buttons and photo cards
+   ========================================================= */
+
+/* Base spacing adjustment */
+.hero {
+  padding-top: clamp(2rem, 4vh, 3rem);
+  padding-bottom: clamp(1.5rem, 3vh, 2rem);
+}
+
+/* Remove extra top gap before photos */
+.hero-visual {
+  margin-top: clamp(0.5rem, 1vh, 1rem) !important;
+}
+
+/* On tablets, keep spacing moderate */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .hero-visual {
+    margin-top: 0.75rem !important;
+  }
+}
+
+/* On mobile — smallest vertical gap */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+  .hero-visual {
+    margin-top: 0.5rem !important;
+  }
+}
