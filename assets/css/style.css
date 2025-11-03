@@ -1356,3 +1356,140 @@ body.page-exit {
   filter: blur(60px);
   opacity: 0.6;
 }
+/* =========================================================
+   PHASE 5 — HERO VISUAL FIX (Mobile + Tablet)
+   Ensures photo cards are visible across all devices
+   ========================================================= */
+
+/* --- Global reinforcement --- */
+.hero-visual {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 5;
+}
+
+/* --- Tablet (601px–1200px) --- */
+@media (min-width: 601px) and (max-width: 1200px) {
+  .hero-visual {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-items: center;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .card-photo {
+    position: relative !important;
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 4/5;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.4);
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* --- Mobile (<=600px) --- */
+@media (max-width: 600px) {
+  .hero-visual {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    justify-items: center;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .card-photo {
+    position: relative !important;
+    display: block;
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 4/5;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
+    background: rgba(255,255,255,0.02);
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+/* =========================================================
+   PHASE 6 — ELEGANT PARALLAX MOTION FOR HERO PHOTOS
+   Inspired by Apple / Samsung smooth scroll effects
+   ========================================================= */
+
+/* Base styles — add depth illusion */
+.hero-visual {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Parallax hover + scroll illusion */
+.card-photo {
+  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+  will-change: transform;
+}
+
+/* Subtle parallax tilt on scroll */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual {
+    position: relative;
+    overflow: visible;
+  }
+
+  /* Floating illusion: each photo moves at slightly different depth */
+  .card-photo.p1 { transform: translateZ(40px) translateY(0); }
+  .card-photo.p2 { transform: translateZ(60px) translateY(20px); }
+  .card-photo.p3 { transform: translateZ(20px) translateY(-20px); }
+
+  /* On hover or focus, amplify a little bit */
+  .card-photo:hover {
+    transform: translateZ(100px) scale(1.03);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65);
+  }
+
+  /* Smooth float effect animation */
+  @keyframes floatParallax {
+    0%, 100% { transform: translateY(0) rotateX(0deg) rotateY(0deg); }
+    50% { transform: translateY(-8px) rotateX(1deg) rotateY(-1deg); }
+  }
+
+  .card-photo.p1,
+  .card-photo.p2,
+  .card-photo.p3 {
+    animation: floatParallax 10s ease-in-out infinite alternate;
+  }
+}
+
+/* Disable parallax for touch devices (performance optimized) */
+@media (max-width: 1024px) {
+  .card-photo {
+    transform: none !important;
+    animation: none !important;
+  }
+}
