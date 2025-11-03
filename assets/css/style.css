@@ -1494,47 +1494,65 @@ body.page-exit {
   }
 }
 /* =========================================================
-   PHASE 7 — HERO SPACING FIX (Phones ↔ Tablets)
-   Smooth spacing between hero CTA buttons and photo cards
+   PHASE 7 — HERO SPACING REFINEMENT (Gap Fix)
+   Ensures photo cards sit tightly under hero text/buttons
    ========================================================= */
 
-/* Global baseline adjustment */
+/* Base hero spacing reset */
 .hero {
-  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding-top: clamp(2rem, 5vh, 3rem);
+  padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
 }
 
-/* Default photo container spacing */
+/* Remove excessive bottom margin in hero container */
+.hero .container {
+  margin-bottom: 0;
+}
+
+/* Photo container spacing fix */
 .hero-visual {
-  margin-top: clamp(1.25rem, 3vw, 2rem);
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  margin-top: clamp(0.5rem, 1.5vh, 1rem);   /* tighter top gap */
+  margin-bottom: clamp(0.5rem, 2vh, 1rem); /* tighter bottom gap */
 }
 
-/* Tablet layout (601 px – 1200 px) */
+/* Tablet layout */
 @media (min-width: 601px) and (max-width: 1200px) {
   .hero {
-    padding-bottom: 2.5rem;
-  }
-
-  .hero-visual {
-    margin-top: 1.5rem;
-    margin-bottom: 1.75rem;
-  }
-}
-
-/* Mobile layout (≤ 600 px) */
-@media (max-width: 600px) {
-  .hero {
+    padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
   .hero-visual {
-    margin-top: 1rem;          /* tighter top spacing */
-    margin-bottom: 1.25rem;    /* smaller gap to next section */
+    margin-top: 0.75rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
-  /* Tighten buttons block too */
-  .hero .btn,
-  .hero .btn.primary {
-    margin-bottom: 0.5rem;
+  .hero-visual {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
   }
+
+  /* Tighten button group */
+  .hero .btn-group,
+  .hero .btn {
+    margin-bottom: 0.4rem;
+  }
+}
+
+/* Optional: fine-tune alignment if photo cards still float too low */
+.hero-visual img,
+.hero-visual .card-photo {
+  display: block;
+  margin: 0 auto;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
 }
