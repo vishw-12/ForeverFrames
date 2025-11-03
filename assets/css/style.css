@@ -1347,3 +1347,12 @@ body.page-exit {
     font-size: 1.5rem;
   }
 }
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(138,180,248,0.05), transparent 70%);
+  z-index: -1;
+  filter: blur(60px);
+  opacity: 0.6;
+}
