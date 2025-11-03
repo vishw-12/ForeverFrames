@@ -1186,3 +1186,13 @@ body.page-exit {
   filter: blur(4px);
   transition: opacity 0.3s ease, filter 0.3s ease;
 }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual img {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+  @keyframes kenBurns {
+    0%   { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.08) translateY(-2%); }
+  }
+}
